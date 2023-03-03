@@ -2,7 +2,7 @@ import React from 'react'
 import { Button,Grid, TextField, Typography } from '@material-ui/core';
 import { Box} from '@mui/material';
 import { Link } from 'react-router-dom';
-import '/Cadastro.css'
+import './Cadastro.css'
 
 function Cadastro() {
     return (
