@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './componentes/estaticos/navbar/Navbar';
-import Footer from './componentes/estaticos/footer/Footer';
-import Home from './paginas/home/Home';
 import './App.css';
+import Navbar from './componentes/estaticos/navbar/Navbar';
+import Home from './paginas/home/Home';
 import Cadastro from './paginas/cadastro/Cadastro';
-import { Login } from '@mui/icons-material';
+import Login from './paginas/login/Login';
+import Footer from './componentes/estaticos/footer/Footer';
 
 
 function App() {
