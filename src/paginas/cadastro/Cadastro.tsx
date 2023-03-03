@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Button,Grid, TextField, Typography } from '@material-ui/core';
 import { Box} from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -31,3 +32,13 @@ function Cadastro() {
 }
 
 export default Cadastro
+=======
+
+function Cadastro() {
+  return (
+    <div>Cadastro</div>
+  )
+}
+
+export default Cadastro
+>>>>>>> c743a380564e447846a185fce6e120a072b7b00a
