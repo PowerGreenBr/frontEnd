@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-baseURL: 'powergreenbr.onrender.com'
+baseURL: 'https://powergreenbr.onrender.com/'
 })
 
 export const login = async(url: any, dados: any, setDados: any) => {
