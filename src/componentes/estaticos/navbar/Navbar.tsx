@@ -27,9 +27,13 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-          <Button color="inherit" component={Link} to="/login">Login</Button>
+          <Link to='/login' className='text-decorator-none'>
+          <Button color="inherit" >Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
+      
     </Box>
+    
   );
 }
