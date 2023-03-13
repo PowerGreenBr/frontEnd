@@ -1,18 +1,13 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
-import './CadastroPost.css';
-import { useNavigate, useParams } from 'react-router-dom';
-import Categoria from '../../../model/Categoria';
-import useLocalStorage from 'react-use-localstorage';
-import Produto from '../../../model/Produto';
-import { busca, buscaId, post, put } from '../../../services/Service';
+import { Button, Container, FormControl, FormHelperText, InputLabel, Select, TextField, Typography } from '@mui/material';
+import React  from 'react'
 
-function CadastroPost() {
- 
+
+function CadastroProduto() {
+
     return (
         <Container maxWidth="sm" className="topo">
             <form >
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar Produto</Typography>
                 <TextField id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
@@ -31,4 +26,4 @@ function CadastroPost() {
         </Container>
     )
 }
-export default CadastroPost;
+export default CadastroProduto;
