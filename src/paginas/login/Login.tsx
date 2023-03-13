@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from 'react-use-localstorage';
 import { login } from '../services/Services';
-import UserLogin from '../models/UserLogin';
+import UserLogin from '../model/UserLogin';
 
 
 
