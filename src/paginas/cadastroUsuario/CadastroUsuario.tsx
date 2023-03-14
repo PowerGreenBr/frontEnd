@@ -2,11 +2,11 @@ import React, { ChangeEvent, useEffect, useState} from 'react';
 import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import './Cadastro.css';
+import './CadastroUsuario.css';
 import { cadastro } from '../../services/Services';
 import User from '../../model/User';
 
-function Cadastro() {
+function CadastroUsuario() {
     let navigate = useNavigate();
     const [confirmarSenha,setConfirmarSenha] = useState<String>("")
     const [user, setUser] = useState<User>(
@@ -28,7 +28,7 @@ function Cadastro() {
         })
 
     useEffect(() => {
-        if (userResult.id != 0) {
+        if (userResult.id !== 0) {
             navigate("/login")
         }
     }, [userResult])
@@ -90,4 +90,4 @@ function Cadastro() {
     );
 }
 
-export default Cadastro;
+export default CadastroUsuario;

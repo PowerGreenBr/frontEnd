@@ -29,35 +29,35 @@ function Navbar() {
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
-                                    home
+                                    Home
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/posts" className="text-decorator-none">
+                        <Link to="/produto" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
-                                    postagens
+                                    Produtos
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/temas" className="text-decorator-none">
+                        <Link to="/categoria" className="text-decorator-none">
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                temas
+                                Categoria
                             </Typography>
                         </Box>
                         </Link>
-                        <Link to="/formularioTema" className="text-decorator-none">
+                        <Link to="/formularioCategoria" className="text-decorator-none">
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                cadastrar tema
+                                Cadastrar Categoria
                             </Typography>
                         </Box>
                         </Link>
-                      
+                
                             <Box mx={1} className='cursor' onClick={goLogout}>
                                 <Typography variant="h6" color="inherit">
-                                    logout
+                                    Sair
                                 </Typography>
                             </Box>
                         

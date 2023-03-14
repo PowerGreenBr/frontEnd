@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import Tema from '../../../model/Tema';
-import './ListaTema.css';
+import './ListaCategoria.css';
 import useLocalStorage from 'react-use-localstorage';
 import {useNavigate} from 'react-router-dom';
-import { busca } from '../../../services/Service';
+import { busca } from '../../../services/Services';
+import Categoria from '../../../model/Categoria';
 
-function ListaTema() {
-  const [temas, setTemas] = useState<Tema[]>([])
+function ListaCategoria() {
+  const [categoria, setCategoria] = useState<Categoria[]>([])
   const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
 
@@ -21,8 +21,8 @@ function ListaTema() {
   }, [token])
 
 
-  async function getTema(){
-    await busca("/tema", setTemas, {
+  async function getCategoria(){
+    await busca("/categoria", setCategoria, {
       headers: {
         'Authorization': token
       }
@@ -31,34 +31,34 @@ function ListaTema() {
 
 
   useEffect(()=>{
-    getTema()
-  }, [temas.length])
+    setCategoria()
+  }, [categoria.length])
 
   return (
     <>
     {
-      temas.map(tema =>(
+      categoria.map(categoria =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Tema
+              Categoria
             </Typography>
             <Typography variant="h5" component="h2">
-             {tema.descricao}
+            {categoria.descricao}
             </Typography>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5} >
 
-              <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
+              <Link to={`/formularioCategoria/${categoria.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft" size='small' color="primary" >
                     atualizar
                   </Button>
                 </Box>
               </Link>
-              <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
+              <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" size='small' color="secondary">
                     deletar
@@ -76,4 +76,4 @@ function ListaTema() {
 }
 
 
-export default ListaTema;
+export default ListaCategoria;
