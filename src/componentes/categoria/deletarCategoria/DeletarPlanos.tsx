@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
 import {Box} from '@mui/material';
-import './DeletarCategoria.css';
+import './DeletarPlanos.css';
 import {useNavigate, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { buscaId, deleteId } from '../../../services/Service';
-import Categoria from '../../../model/Categoria';
+import { buscaId, deleteId } from '../../../services/Services';
 
 
-function DeletarTema() {
+function DeletarPlanos() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
     const [token, setToken] = useLocalStorage('token');
-    const [tema, setTema] = useState<Tema>()
+    const [Planos, setPlanos] = useState<Planos>()
 
     useEffect(() => {
         if (token == "") {
@@ -29,7 +28,7 @@ function DeletarTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/Planos/${id}`, setPlanos, {
             headers: {
               'Authorization': token
             }
@@ -37,17 +36,17 @@ function DeletarTema() {
         }
 
         function sim() {
-          navigate('/temas')
-            deleteId(`/tema/${id}`, {
+          navigate('/Planos')
+            deleteId(`/Planos/${id}`, {
               headers: {
                 'Authorization': token
               }
             });
-            alert('Tema deletado com sucesso');
+            alert('Plano deletado com sucesso');
           }
         
           function nao() {
-            navigate('/temas')
+            navigate('/planos')
           }
           
   return (
@@ -57,10 +56,10 @@ function DeletarTema() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o Tema:
+                Deseja deletar o Plano:
               </Typography>
               <Typography color="textSecondary">
-                {tema?.descricao}
+                {Planos?.descricao}
               </Typography>
             </Box>
           </CardContent>
@@ -83,4 +82,4 @@ function DeletarTema() {
     </>
   );
 }
-export default DeletarTema;
+export default DeletarPlanos;
