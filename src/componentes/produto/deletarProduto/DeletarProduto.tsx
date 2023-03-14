@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
 import {Box} from '@mui/material';
-import './DeletarPostagem.css';
+import './DeletarProduto.css';
 import {useNavigate, useParams } from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage';
-import Postagem from '../../../model/Postagem';
-import { buscaId, deleteId } from '../../../services/Service';
+import Produto from '../../../model/Produto';
+import { buscaId, deleteId } from '../../../services/Services';
 
-function DeletarPostagem() {
+
+
+function DeletarProduto() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
     const [token, setToken] = useLocalStorage('token');
-    const [post, setPosts] = useState<Postagem>()
+    const [post, setPosts] = useState<Produto>()
 
     useEffect(() => {
         if (token == "") {
@@ -28,7 +30,7 @@ function DeletarPostagem() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/postagens/${id}`, setPosts, {
+        buscaId(`/produto/${id}`, setPosts, {
             headers: {
               'Authorization': token
             }
@@ -37,16 +39,16 @@ function DeletarPostagem() {
 
         function sim() {
           navigate('/posts')
-            deleteId(`/postagens/${id}`, {
+            deleteId(`/produto/${id}`, {
               headers: {
                 'Authorization': token
               }
             });
-            alert('Postagem deletada com sucesso');
+            alert('Produto deletado com sucesso');
           }
         
           function nao() {
-            navigate('/posts')
+            navigate('/produto')
           }
   return (
     <>
@@ -55,7 +57,7 @@ function DeletarPostagem() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar a Postagem?
+                Deseja deletar o Produto?
               </Typography>
               <Typography color="textSecondary" >
               {post?.titulo}
@@ -82,4 +84,4 @@ function DeletarPostagem() {
     </>
   );
 }
-export default DeletarPostagem;
+export default DeletarProduto;
