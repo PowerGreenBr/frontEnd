@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import './ListaCategoria.css';
+import './ListaPlanos.css';
 import useLocalStorage from 'react-use-localstorage';
 import {useNavigate} from 'react-router-dom';
 import { busca } from '../../../services/Services';
-import Categoria from '../../../model/Categoria';
+import Planos from '../../../model/Planos';
 
-function ListaCategoria() {
-  const [categoria, setCategoria] = useState<Categoria[]>([])
+function ListaPlanos() {
+  const [Planos, setPlanos] = useState<Planos[]>([])
   const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function ListaCategoria() {
 
 
   async function getCategoria(){
-    await busca("/categoria", setCategoria, {
+    await busca("/Planos", setPlanos, {
       headers: {
         'Authorization': token
       }
@@ -31,34 +31,34 @@ function ListaCategoria() {
 
 
   useEffect(()=>{
-    setCategoria()
-  }, [categoria.length])
+    setPlanos()
+  }, [planos.length])
 
   return (
     <>
     {
-      categoria.map(categoria =>(
+      planos.map(planos =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Categoria
+              Planos
             </Typography>
             <Typography variant="h5" component="h2">
-            {categoria.descricao}
+            {planos.descricao}
             </Typography>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5} >
 
-              <Link to={`/formularioCategoria/${categoria.id}`} className="text-decorator-none">
+              <Link to={`/formularioPlanos/${planos.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft" size='small' color="primary" >
                     atualizar
                   </Button>
                 </Box>
               </Link>
-              <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
+              <Link to={`/deletarPlanos/${planos.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" size='small' color="secondary">
                     deletar

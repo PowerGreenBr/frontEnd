@@ -43,7 +43,7 @@ function CadastroCategoria() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/categoria/${id}`, setCategoria, {
+        buscaId(`/planos/${id}`, setPlanos, {
             headers: {
                 'Authorization': token
             }
@@ -53,7 +53,7 @@ function CadastroCategoria() {
     function updatedCategoria(e: ChangeEvent<HTMLInputElement>) {
 
         setCategoria({
-            ...setCategoria,
+            <div className="setPlanos"></div>,
             [e.target.name]: e.target.value,
         })
 
