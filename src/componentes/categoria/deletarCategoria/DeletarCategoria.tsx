@@ -4,15 +4,15 @@ import {Box} from '@mui/material';
 import './DeletarCategoria.css';
 import {useNavigate, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { buscaId, deleteId } from '../../../services/Service';
 import Categoria from '../../../model/Categoria';
+import { buscaId, deleteId } from '../../../services/Services';
 
 
-function DeletarTema() {
+function DeletarCategoria() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
     const [token, setToken] = useLocalStorage('token');
-    const [tema, setTema] = useState<Tema>()
+    const [tema, setCategoria] = useState<Categoria>()
 
     useEffect(() => {
         if (token == "") {
@@ -29,7 +29,7 @@ function DeletarTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/categoria/${id}`, setCategoria, {
             headers: {
               'Authorization': token
             }
@@ -37,17 +37,17 @@ function DeletarTema() {
         }
 
         function sim() {
-          navigate('/temas')
-            deleteId(`/tema/${id}`, {
+          navigate('/categoria')
+            deleteId(`/categoria/${id}`, {
               headers: {
                 'Authorization': token
               }
             });
-            alert('Tema deletado com sucesso');
+            alert('Categoria deletada com sucesso');
           }
         
           function nao() {
-            navigate('/temas')
+            navigate('/categoria')
           }
           
   return (
@@ -57,7 +57,7 @@ function DeletarTema() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o Tema:
+                Deseja deletar a Categoria:
               </Typography>
               <Typography color="textSecondary">
                 {tema?.descricao}
@@ -83,4 +83,4 @@ function DeletarTema() {
     </>
   );
 }
-export default DeletarTema;
+export default DeletarCategoria;
