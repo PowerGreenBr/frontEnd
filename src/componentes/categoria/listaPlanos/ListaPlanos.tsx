@@ -76,4 +76,4 @@ function ListaPlanos() {
 }
 
 
-export default ListaCategoria;
+export default ListaPlanos;
