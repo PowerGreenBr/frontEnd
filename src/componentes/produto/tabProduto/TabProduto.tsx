@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import { AppBar, Tab, Tabs, Typography} from '@material-ui/core';
 import {Box} from '@mui/material';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listapostagem/ListaPostagem';
+import ListaProduto from '../listaProduto/ListaProduto';
 import './TabPostagem.css';
 
 
-function TabPostagem() {
+function TabProduto() {
     const [value, setValue] = useState('1')
     function handleChange(event: React.ChangeEvent<{}>, newValue: string){
         setValue(newValue);
@@ -22,7 +22,7 @@ function TabPostagem() {
         </AppBar>
         <TabPanel value="1" >
           <Box display="flex" flexWrap="wrap" justifyContent="center">
-            <ListaPostagem />
+            <ListaProduto />
           </Box>
         </TabPanel>
         <TabPanel value="2">
@@ -33,4 +33,4 @@ function TabPostagem() {
     </>
   );
 }
-export default TabPostagem;
+export default TabProduto;
