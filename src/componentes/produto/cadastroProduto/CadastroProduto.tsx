@@ -15,7 +15,7 @@ function CadastroProduto() {
     const { id } = useParams<{id: string}>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
+    );
     const [produto, setProduto] = useState<Produto>({
         id: 0,
         nome: '',

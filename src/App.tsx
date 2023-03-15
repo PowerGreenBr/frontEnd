@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
@@ -16,12 +15,12 @@ import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto'
 import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
 import '/App.css'
 import store from './store/store';
+import Navbar from './componentes/estaticos/navbar/Navbar';
 function App() {
   return (
-    <>
-     <Provider store={store}>
+    <Provider store={store}>
       <ToastContainer />
-    <Router>
+      <Router>
       <Navbar />
     
         <div style={{ minHeight: '100vh' }}>
@@ -56,8 +55,7 @@ function App() {
     
       <Footer />
     </Router>
-     </Provider>
-    </>
+    </Provider>
   );
 }
 

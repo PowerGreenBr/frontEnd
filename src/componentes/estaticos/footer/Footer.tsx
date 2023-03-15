@@ -15,13 +15,13 @@ function Footer() {
                         <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Conheça nossa Equipe e Projeto </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" justifyContent="center">
-                        <a href="https://www.facebook.com/generationbrasil" target="_blank">
+                        <a href="https://www.facebook.com/generationbrasil" >
                             <FacebookIcon style={{ fontSize: 60, color: "white" }} />
                         </a>
-                        <a href="https://www.instagram.com/generationbrasil/" target="_blank">
+                        <a href="https://www.instagram.com/generationbrasil/" >
                             <InstagramIcon style={{ fontSize: 60, color: "white" }} />
                         </a>
-                        <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
+                        <a href="https://www.linkedin.com/school/generationbrasil/" >
                             <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
                         </a>
                     </Box>
@@ -31,7 +31,7 @@ function Footer() {
                         <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2020 Copyright:T59G2</Typography>
                     </Box>
                     <Box>
-                        <a target="_blank" href="https://brasil.generation.org">
+                        <a href="https://brasil.generation.org">
                             <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">PowerGreenBr</Typography>
                         </a>
                     </Box>

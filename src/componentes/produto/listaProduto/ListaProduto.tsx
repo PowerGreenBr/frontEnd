@@ -4,20 +4,23 @@ import Produto from '../../../model/Produto';
 import { busca } from '../../../services/Services';
 import {  Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import './ListaProdutos.css';
+import './/ListaProdutos.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function ListaProdutos() {
-  const [posts, setProdutos] = useState<Produto[]>([])
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
-  );
+    );
+    const userId = useSelector<TokenState, TokenState['id']>(
+      (state) => state.id
+    );
+    const [produtos, setProdutos] = useState<Produto[]>([])
 
   useEffect(() => {
-    if (token == "") {
+    if (token === "") {
       toast.error('Você precisa estar logado', {
         position: "top-right",
         autoClose: 2000,
@@ -31,7 +34,7 @@ function ListaProdutos() {
       navigate("/login")
 
     }
-  }, [token])
+  })
 
   async function getProdutos() {
     await busca("/produtos", setProdutos, {
@@ -45,12 +48,12 @@ function ListaProdutos() {
 
     getProdutos()
 
-  }, [posts.length])
+  }, [produtos.length])
 
   return (
     <>
       {
-        posts.map(post => (
+        produtos.map((produto) => (
           <Box m={2} >
             <Card variant="outlined">
               <CardContent>
@@ -58,26 +61,26 @@ function ListaProdutos() {
                   Produtos
                 </Typography>
                 <Typography variant="h5" component="h2">
-                  {post.titulo}
+                  {produto.nome}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.texto}
+                  {produto.descricao}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.planos?.descricao}
+                  {produto.plano}
                 </Typography>
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
-                  <Link to={`/formularioProdutos/${post.id}`} className="text-decorator-none" >
+                  <Link to={`/formularioProdutos/${produto.id}`} className="text-decorator-none" >
                     <Box mx={1}>
                       <Button variant="contained" className="marginLeft" size='small' color="primary" >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
-                  <Link to={`/deletarProdutos/${post.id}`} className="text-decorator-none">
+                  <Link to={`/deletarProdutos/${produto.id}`} className="text-decorator-none">
                     <Box mx={1}>
                       <Button variant="contained" size='small' color="secondary">
                         deletar
@@ -89,9 +92,9 @@ function ListaProdutos() {
             </Card>
           </Box>
         ))
-      }
+        }
     </>
-  )
+  );
 }
 
 export default ListaProdutos;
