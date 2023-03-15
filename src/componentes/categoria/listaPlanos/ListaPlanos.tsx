@@ -21,7 +21,7 @@ function ListaPlanos() {
   }, [token])
 
 
-  async function getCategoria(){
+  async function getPlanos(){
     await busca("/Planos", setPlanos, {
       headers: {
         'Authorization': token
@@ -32,12 +32,12 @@ function ListaPlanos() {
 
   useEffect(()=>{
     setPlanos()
-  }, [planos.length])
+  }, [Planos.length])
 
   return (
     <>
     {
-      planos.map(planos =>(
+      Planos.map(planos =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>

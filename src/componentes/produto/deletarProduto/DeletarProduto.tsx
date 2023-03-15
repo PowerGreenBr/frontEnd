@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
+import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
 import {Box} from '@mui/material';
-import './DeletarProduto.css';
-import {useNavigate, useParams } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
+import './DeletarPostagem.css';
+import { useNavigate, useParams } from 'react-router-dom';
 import Produto from '../../../model/Produto';
 import { buscaId, deleteId } from '../../../services/Services';
-
-
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarProduto() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
-    const [post, setPosts] = useState<Produto>()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+      (state) => state.tokens
+    );
+    const [post, setProdutos] = useState<Produtos>()
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
-            navigate("/login")
+          toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
+        navigate("/login")
     
         }
     }, [token])
@@ -30,7 +41,7 @@ function DeletarProduto() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/produto/${id}`, setPosts, {
+        buscaId(`/produtos/${id}`, setProdutos, {
             headers: {
               'Authorization': token
             }
@@ -38,17 +49,26 @@ function DeletarProduto() {
         }
 
         function sim() {
-          navigate('/posts')
-            deleteId(`/produto/${id}`, {
+          navigate('/produtos')
+            deleteId(`/produtoss/${id}`, {
               headers: {
                 'Authorization': token
               }
             });
-            alert('Produto deletado com sucesso');
+            toast.success('Produto deletado com sucesso', {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              theme: "colored",
+              progress: undefined,
+          });
           }
         
           function nao() {
-            navigate('/produto')
+            navigate('/produtos')
           }
   return (
     <>
@@ -57,7 +77,7 @@ function DeletarProduto() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o Produto?
+                Deseja deletar o produto:
               </Typography>
               <Typography color="textSecondary" >
               {post?.titulo}

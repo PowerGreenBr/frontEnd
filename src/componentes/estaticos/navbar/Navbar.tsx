@@ -21,7 +21,7 @@ function Navbar() {
                 <Toolbar variant="dense">
                     <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
-                            BlogPessoal
+                            PowerGreenBr
                         </Typography>
                     </Box>
 
@@ -40,17 +40,17 @@ function Navbar() {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/categoria" className="text-decorator-none">
+                        <Link to="/planos" className="text-decorator-none">
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                Categoria
+                                Planos
                             </Typography>
                         </Box>
                         </Link>
-                        <Link to="/formularioCategoria" className="text-decorator-none">
+                        <Link to="/formularioPlanos" className="text-decorator-none">
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                Cadastrar Categoria
+                                Cadastrar Assinatura
                             </Typography>
                         </Box>
                         </Link>

@@ -5,7 +5,7 @@ import './DeletarPlanos.css';
 import {useNavigate, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { buscaId, deleteId } from '../../../services/Services';
-
+import Planos from '../../../model/Planos';
 
 function DeletarPlanos() {
     let navigate = useNavigate();
