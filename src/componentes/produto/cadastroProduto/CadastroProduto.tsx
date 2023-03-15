@@ -1,7 +1,7 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useNavigate, useParams } from 'react-router-dom'
-import './CadastroPlanos.css';
+import './CadastroProduto.css';
 import Produto from '../../../model/Produto';
 import { buscaId, post, put } from '../../../services/Services';
 import { toast } from 'react-toastify';

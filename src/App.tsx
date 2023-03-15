@@ -13,7 +13,7 @@ import CadastroProduto from './componentes/produto/cadastroProduto/CadastroProdu
 import CadastroPlanos from './componentes/planos/cadastroPlanos/CadastroPlanos';
 import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto';
 import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
-import '/App.css'
+import './App.css'
 import store from './store/store';
 import Navbar from './componentes/estaticos/navbar/Navbar';
 function App() {
