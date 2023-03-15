@@ -5,19 +5,20 @@ import './CadastroPlanos.css';
 import Planos from '../../../model/Planos';
 import { buscaId, post, put } from '../../../services/Services';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import useLocalStorage from 'react-use-localstorage';
+
 
 
 function CadastroPlanos() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => state.tokens
-      );
+    const [token, setToken] = useLocalStorage('token');
     const [planos, setPlanos] = useState<Planos>({
         id: 0,
         descricao: ''
+
     })
 
     useEffect(() => {
