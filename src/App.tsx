@@ -8,13 +8,14 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import ListaPlanos from './componentes/categoria/listaPlanos/ListaPlanos';
+import ListaPlanos from './componentes/planos/listaPlanos/ListaPlanos';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
 import CadastroProduto from './componentes/produto/cadastroProduto/CadastroProduto';
-import CadastroPlanos from './componentes/categoria/cadastroPlanos/CadastroPlanos';
+import CadastroPlanos from './componentes/planos/cadastroPlanos/CadastroPlanos';
 import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto';
-import DeletarPlanos from './componentes/categoria/deletarPlanos/DeletarPlanos';
+import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
 import '/App.css'
+import store from './store/store';
 function App() {
   return (
     <>

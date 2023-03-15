@@ -15,7 +15,7 @@ function DeletarProduto() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
       (state) => state.tokens
     );
-    const [post, setProdutos] = useState<Produtos>()
+    const [produtos, setProdutos] = useState<Produto>()
 
     useEffect(() => {
         if (token == "") {
@@ -80,7 +80,7 @@ function DeletarProduto() {
                 Deseja deletar o produto:
               </Typography>
               <Typography color="textSecondary" >
-              {post?.titulo}
+              {produtos?.nome}
               </Typography>
             </Box>
 

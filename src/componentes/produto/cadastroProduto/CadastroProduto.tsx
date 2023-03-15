@@ -1,21 +1,30 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
-import './CadastroProduto.css';
-import { useNavigate, useParams } from 'react-router-dom';
-import Planos from '../../../model/Planos';
+import React, {useState, useEffect, ChangeEvent} from 'react'
+import { Container, Typography, TextField, Button } from "@material-ui/core"
+import {useNavigate, useParams } from 'react-router-dom'
+import './CadastroPlanos.css';
 import Produto from '../../../model/Produto';
-import { busca, buscaId, post, put } from '../../../services/Services';
-import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { buscaId, post, put } from '../../../services/Services';
 import { toast } from 'react-toastify';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { useSelector } from 'react-redux';
 
-function CadastroProdutos() {
+
+
+function CadastroProduto() {
     let navigate = useNavigate();
-    const { id } = useParams<{ id: string }>();
-    const [planos, setPlanos] = useState<Planos[]>([])
+    const { id } = useParams<{id: string}>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
       );
+    const [produto, setProduto] = useState<Produto>({
+        id: 0,
+        nome: '',
+        capacidade: 0,
+        numero_saidas: 0,
+        foto: '',
+        descricao: '',
+        plano: {}
+    })
 
     useEffect(() => {
         if (token == "") {
@@ -28,138 +37,92 @@ function CadastroProdutos() {
                 draggable: false,
                 theme: "colored",
                 progress: undefined,
-            });
+                });
             navigate("/login")
-
+    
         }
     }, [token])
 
-    const [planos, setPlanos] = useState<Planos>(
-        {
-            id: 0,
-            descricao: ''
-        })
-    const [produtos, setProdutos] = useState<Produto>({
-        id: 0,
-        titulo: '',
-        texto: '',
-        tema: null
-    })
-
-    useEffect(() => { 
-        setProdutos({
-            ...produtos,
-        
-        })
-    }, [planos])
-
-    useEffect(() => {
-        getPlanos()
-        if (id !== undefined) {
-            findByIdProdutos(id)
+    useEffect(() =>{
+        if(id !== undefined){
+            findById(id)
         }
     }, [id])
 
-    async function getPlanos() {
-        await busca("/planos", setPlanos, {
+    async function findById(id: string) {
+        buscaId(`/produto/${id}`, setProduto, {
             headers: {
-                'Authorization': token
+              'Authorization': token
             }
-        })
-    }
-
-    async function findByIdProdutos(id: string) {
-        await buscaId(`produtos/${id}`, setProdutos, {
-            headers: {
-                'Authorization': token
-            }
-        })
-    }
-
-    function updatedProdutos(e: ChangeEvent<HTMLInputElement>) {
-
-        setProdutos({
-            ...produtos,
-            [e.target.name]: e.target.value,
-        
-        })
-
-    }
-
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-
-        if (id !== undefined) {
-            put(`/produtos`, produtos, setProdutos, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            toast.success('Produto atualizado com sucesso', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-            });
-        } else {
-            post(`/produtos`, produtos, setProdutos, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            toast.success('Produto cadastrado com sucesso', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-            });
+          })
         }
-        back()
 
-    }
+        function updatedProduto(e: ChangeEvent<HTMLInputElement>) {
 
-    function back() {
-        navigate('/produtos')
-    }
-
+            setProduto({
+                ...produto,
+                [e.target.name]: e.target.value,
+            })
+    
+        }
+        
+        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+            e.preventDefault()
+            console.log("produto" + JSON.stringify(produto))
+    
+            if (id !== undefined) {
+                console.log(produto)
+                put(`/produto`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Produto atualizado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
+            } else {
+                post(`/produto`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Produto cadastrado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
+            }
+            back()
+    
+        }
+    
+        function back() {
+            navigate('/produto')
+        }
+  
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-                <TextField value={produtos.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProdutos(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={produtos.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProdutos(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
-
-                <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Planos </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/planos/${e.target.value}`, setPlanos, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })}>
-                        {
-                            planos.map(planos=> (
-                                <MenuItem value={planos.id}>{planos.descricao}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
-                </FormControl>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro planos</Typography>
+                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <Button type="submit" variant="contained" color="primary">
+                    Finalizar
+                </Button>
             </form>
         </Container>
     )
 }
-export default CadastroProdutos;
+
+export default CadastroProduto;

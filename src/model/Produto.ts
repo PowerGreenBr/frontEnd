@@ -1,12 +1,14 @@
-import Categoria from './Planos'
+import Plano from './Planos'
 
 interface Produto{
-    planos: any;
-
     id: Number;
-    titulo: string;
-    texto: string;
-    categoria?: Categoria| null
+    nome: string;
+    capacidade: 0;
+    numero_saidas: 0;
+    foto: string;
+    descricao: string;
+    plano: {}
+    
 
 }
 

@@ -12,7 +12,6 @@ function ListaPlanos() {
   const [Planos, setPlanos] = useState<Planos[]>([])
   const [token, setToken] = useLocalStorage('tokens');
   let navigate = useNavigate();
-
   useEffect(()=>{
     if(token == ''){
       alert("Você precisa estar logado")
