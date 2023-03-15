@@ -10,7 +10,7 @@ import Planos from '../../../model/Planos';
 
 function ListaPlanos() {
   const [Planos, setPlanos] = useState<Planos[]>([])
-  const [token, setToken] = useLocalStorage('token');
+  const [token, setToken] = useLocalStorage('tokens');
   let navigate = useNavigate();
 
   useEffect(()=>{
@@ -31,7 +31,7 @@ function ListaPlanos() {
 
 
   useEffect(()=>{
-    setPlanos()
+    getPlanos()
   }, [Planos.length])
 
   return (
