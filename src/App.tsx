@@ -19,7 +19,7 @@ import store from './store/store';
 
 import './App.css'
 
-function App() {
+export default function App() {
   return (
     <Provider store={store}>
       <ToastContainer />
@@ -46,5 +46,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;

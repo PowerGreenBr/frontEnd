@@ -3,40 +3,53 @@ import { Link } from 'react-router-dom'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
 import './ListaPlanos.css';
-import useLocalStorage from 'react-use-localstorage';
 import {useNavigate} from 'react-router-dom';
 import { busca } from '../../../services/Services';
 import Planos from '../../../model/Planos';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaPlanos() {
-  const [Planos, setPlanos] = useState<Planos[]>([])
-  const [token, setToken] = useLocalStorage('tokens');
+  const [planos, setPlanos] = useState<Planos[]>([]);
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state) => state.token
+  );
   let navigate = useNavigate();
-  useEffect(()=>{
-    if(token == ''){
-      alert("Você precisa estar logado")
-      navigate("/login")
+
+  useEffect(() => {
+    if (token === '') {
+      toast.error('Você precisa estar logado pra ficar aqui.',{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+      navigate('/login');
     }
-  }, [token])
+  }, [token]);
 
-
-  async function getPlanos(){
-    await busca("/Planos", setPlanos, {
+  async function getPlanos() {
+    await busca('/planos', setPlanos, {
       headers: {
-        'Authorization': token
-      }
-    })
+        Authorization: token,
+      },
+    });
   }
 
+  useEffect(() => {
+    getPlanos();
+  }, [planos.length]);
 
-  useEffect(()=>{
-    getPlanos()
-  }, [Planos.length])
 
   return (
     <>
     {
-      Planos.map(planos =>(
+      planos.map(planos =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
@@ -45,6 +58,9 @@ function ListaPlanos() {
             </Typography>
             <Typography variant="h5" component="h2">
             {planos.nome}
+            </Typography>
+            <Typography variant="h5" component="h2">
+            {planos.preco}
             </Typography>
           </CardContent>
           <CardActions>

@@ -64,10 +64,10 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link>
-                            <Link to="/formularioPlanos" className="text-decorator-none">
+                            <Link to="/cadastrar-planos" className="text-decorator-none">
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" color="inherit">
-                                        Cadastrar Assinatura
+                                        Cadastrar Plano
                                     </Typography>
                                 </Box>
                             </Link>
