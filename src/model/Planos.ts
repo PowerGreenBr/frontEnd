@@ -1,7 +1,8 @@
 interface Planos{
 
     id: Number;
-    descricao: string;
+    nome: string;
+    preco: number;
 
 }
 
