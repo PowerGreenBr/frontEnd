@@ -74,7 +74,7 @@ function Login() {
   useEffect(()=>{
     if(token !== ''){
       dispatch(addToken(token))
-      navigate('/home')
+      navigate('/produto')
     }
   }, [token])
 
@@ -82,7 +82,7 @@ function Login() {
     if(respUserLogin.token !== '') {
       dispatch(addToken(respUserLogin.token))
       dispatch(addId(respUserLogin.id.toString()))
-      navigate('/home')
+      navigate('/produto')
     }
   }, [respUserLogin.token])
 
