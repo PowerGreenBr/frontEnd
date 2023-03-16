@@ -37,8 +37,8 @@ export default function App() {
             <Route path="/cadastrar-planos" element={<CadastroPlanos />} />
             <Route path="/editar-produto/:id" element={<CadastroProduto />} />
             <Route path="/editar-planos/:id" element={<CadastroPlanos />} />
-            <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
-            <Route path="/deletar-planos/:id" element={<DeletarPlanos/>} />
+            <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
+            <Route path="/deletarPlanos/:id" element={<DeletarPlanos/>} />
           </Routes>
         </div>
         <Footer />

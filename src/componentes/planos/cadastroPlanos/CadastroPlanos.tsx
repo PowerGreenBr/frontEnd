@@ -6,10 +6,7 @@ import Plano from '../../../model/Planos';
 import { buscaId, post, put } from '../../../services/Services';
 import { toast } from 'react-toastify';
 import { TokenState } from '../../../store/tokens/tokensReducer';
-import useLocalStorage from 'react-use-localstorage';
 import { useSelector } from 'react-redux';
-
-
 
 function CadastroPlanos() {
     let navigate = useNavigate();

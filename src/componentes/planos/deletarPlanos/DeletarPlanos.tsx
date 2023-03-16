@@ -3,51 +3,62 @@ import { Card, CardActions, CardContent, Button, Typography} from '@material-ui/
 import {Box} from '@mui/material';
 import './DeletarPlanos.css';
 import {useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { buscaId, deleteId } from '../../../services/Services';
-import Planos from '../../../model/Planos';
+import Plano from '../../../model/Planos';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarPlanos() {
-    let navigate = useNavigate();
-    const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
-    const [Planos, setPlanos] = useState<Planos>()
+  let navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state) => state.token
+  );
+  const [plano, setPlano] = useState<Plano>();
 
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            navigate("/login")
-    
-        }
-    }, [token])
+  useEffect(() => {
+    if (token === '') {
+      navigate('/login');
+    }
+  }, [token]);
 
-    useEffect(() =>{
-        if(id !== undefined){
-            findById(id)
-        }
-    }, [id])
+  async function findById(id: string) {
+    await buscaId(`/planos/${id}`, setPlano, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
 
-    async function findById(id: string) {
-        buscaId(`/Planos/${id}`, setPlanos, {
-            headers: {
-              'Authorization': token
-            }
-          })
-        }
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id);
+    }
+  }, [id]);
 
-        function sim() {
-          navigate('/Planos')
-            deleteId(`/Planos/${id}`, {
-              headers: {
-                'Authorization': token
-              }
-            });
-            alert('Plano deletado com sucesso');
-          }
-        
-          function nao() {
-            navigate('/planos')
-          }
+  function sim() {
+    navigate('/planos');
+    deleteId(`/planos/${id}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    toast.info('Tema apagado com sucesso',{
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+  }
+
+  function nao() {
+    navigate('/planos');
+  }
           
   return (
     <>
@@ -59,7 +70,7 @@ function DeletarPlanos() {
                 Deseja deletar o Plano:
               </Typography>
               <Typography color="textSecondary">
-                {Planos?.nome}
+                {plano?.nome}
               </Typography>
             </Box>
           </CardContent>

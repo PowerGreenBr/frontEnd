@@ -50,7 +50,7 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link>
-                            <Link to="/produto" className="text-decorator-none">
+                            <Link to="/produtos" className="text-decorator-none">
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" color="inherit">
                                         Produtos
@@ -68,6 +68,13 @@ function Navbar() {
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" color="inherit">
                                         Cadastrar Plano
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to="/cadastrar-produto" className="text-decorator-none">
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        Cadastrar Produto
                                     </Typography>
                                 </Box>
                             </Link>

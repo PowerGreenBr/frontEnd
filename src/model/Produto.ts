@@ -1,4 +1,4 @@
-import Plano from './Planos'
+import Planos from "./Planos";
 
 interface Produto{
     id: Number;
@@ -7,9 +7,8 @@ interface Produto{
     numero_saidas: 0;
     foto: string;
     descricao: string;
-    plano: {}
-    
-
+    plano?: Planos | null;
+    usuario?: {} | null;
 }
 
 export default Produto;

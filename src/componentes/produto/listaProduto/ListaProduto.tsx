@@ -10,7 +10,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function ListaProduto() {
-	let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const token = useSelector<TokenState, TokenState['token']>(
     (state) => state.token
@@ -38,7 +38,7 @@ function ListaProduto() {
 
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
-  async function getPosts() {
+  async function getProdutos() {
     await busca('/produtos', setProdutos, {
       headers: {
         Authorization: token,
@@ -47,13 +47,13 @@ function ListaProduto() {
   }
 
   useEffect(() => {
-    getPosts();
+    getProdutos();
   }, [produtos.length]);
 
 return (
     <>
     {
-        produtos.map(produtos => (
+        produtos.map(produto => (
         <Box m={2} >
             <Card variant="outlined">
             <CardContent>
@@ -61,24 +61,24 @@ return (
                 produto
                 </Typography>
                 <Typography variant="h5" component="h2">
-                {produtos.nome}
+                {produto.nome}
                 </Typography>
                 <Typography variant="body2" component="p">
-                {produtos.plano}
+                {produto.plano?.nome}
                 </Typography>
                 
             </CardContent>
             <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
-                <Link to={`/formularioproduto/${produtos.id}`} className="text-decorator-none" >
+                <Link to={`/formularioproduto/${produto.id}`} className="text-decorator-none" >
                     <Box mx={1}>
                     <Button variant="contained" className="marginLeft" size='small' color="primary" >
                         atualizar
                     </Button>
                     </Box>
                 </Link>
-                <Link to={`/deletarproduto/${produtos.id}`} className="text-decorator-none">
+                <Link to={`/deletarproduto/${produto.id}`} className="text-decorator-none">
                     <Box mx={1}>
                     <Button variant="contained" size='small' color="secondary">
                         deletar

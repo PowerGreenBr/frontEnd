@@ -1,75 +1,75 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
 import {Box} from '@mui/material';
-import './DeletarProduto.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Produto from '../../../model/Produto';
 import { buscaId, deleteId } from '../../../services/Services';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import './DeletarProduto.css';
 
 function DeletarProduto() {
-    let navigate = useNavigate();
-    const { id } = useParams<{id: string}>();
-    const token = useSelector<TokenState, TokenState["token"]>(
-      (state) => state.token
-    );
-    const [produtos, setProdutos] = useState<Produto>()
+  let navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state) => state.token
+  );
 
-    useEffect(() => {
-        if (token == "") {
-          toast.error('Você precisa estar logado', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            theme: "colored",
-            progress: undefined,
+  const [produto, setProduto] = useState<Produto>();
+
+  useEffect(() => {
+    if (token === '') {
+      toast.error('Você precisa estar logado',{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
         });
-        navigate("/login")
-    
-        }
-    }, [token])
+      navigate('/login');
+    }
+  }, [token]);
 
-    useEffect(() =>{
-        if(id !== undefined){
-            findById(id)
-        }
-    }, [id])
+  async function findById(id: string) {
+    await buscaId(`/produtos/${id}`, setProduto, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
 
-    async function findById(id: string) {
-        buscaId(`/produtos/${id}`, setProdutos, {
-            headers: {
-              'Authorization': token
-            }
-          })
-        }
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id);
+    }
+  }, [id]);
 
-        function sim() {
-          navigate('/produtos')
-            deleteId(`/produtoss/${id}`, {
-              headers: {
-                'Authorization': token
-              }
-            });
-            toast.success('Produto deletado com sucesso', {
-              position: "top-right",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: false,
-              theme: "colored",
-              progress: undefined,
-          });
-          }
-        
-          function nao() {
-            navigate('/produtos')
-          }
+  function sim() {
+    navigate('/produtos');
+    deleteId(`/deletarproduto/${id}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    toast.info('Postagem deletada com sucesso',{
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+  }
+
+  function nao() {
+    navigate('/produtos');
+  }
   return (
     <>
       <Box m={2}>
@@ -80,7 +80,7 @@ function DeletarProduto() {
                 Deseja deletar o produto:
               </Typography>
               <Typography color="textSecondary" >
-              {produtos?.nome}
+              {produto?.nome}
               </Typography>
             </Box>
 
