@@ -6,9 +6,7 @@ import { toast } from 'react-toastify';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { useSelector } from 'react-redux';
 
-import Plano from '../../../model/Planos';
 import Produto from '../../../model/Produto';
-import Usuario from '../../../model/Usuario';
 import './CadastroProduto.css';
 
 function CadastroProduto() {
@@ -24,7 +22,7 @@ function CadastroProduto() {
 			numero_saidas: 0,
 			foto: '',
 			descricao: '',
-			plano: null
+			// plano: null
     });
   
     useEffect(() => {
@@ -140,11 +138,16 @@ function CadastroProduto() {
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de produto</Typography>
                 <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                <TextField value={produto.capacidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="capacidade" label="capacidade" variant="outlined" name="capacidade" margin="normal" fullWidth />
-                <TextField value={produto.numero_saidas} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="numero_saidas" label="numero_saidas" variant="outlined" name="numero_saidas" margin="normal" fullWidth />
-                <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
-                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <TextField value={produto.plano} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="plano" label="plano" variant="outlined" name="plano" margin="normal" fullWidth />
+                
+								<TextField value={produto.capacidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="capacidade" label="capacidade" variant="outlined" name="capacidade" margin="normal" fullWidth />
+                
+								<TextField value={produto.numero_saidas} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="numero_saidas" label="numero_saidas" variant="outlined" name="numero_saidas" margin="normal" fullWidth />
+                
+								<TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                
+								<TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                
+								{/* <TextField value={produto.plano?.id} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="plano" label="plano" variant="outlined" name="plano" margin="normal" fullWidth /> */}
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
