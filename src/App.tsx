@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Footer from './componentes/estaticos/footer/Footer';
-import Home from './paginas/home/Home';
-import Login from './paginas/login/Login';
-import './App.css';
 import { Provider } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+
+import Navbar from './componentes/estaticos/navbar/Navbar';
+import Home from './paginas/home/Home';
+import Footer from './componentes/estaticos/footer/Footer';
+import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import ListaPlanos from './componentes/planos/listaPlanos/ListaPlanos';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
@@ -13,9 +15,10 @@ import CadastroProduto from './componentes/produto/cadastroProduto/CadastroProdu
 import CadastroPlanos from './componentes/planos/cadastroPlanos/CadastroPlanos';
 import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto';
 import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
-import './App.css'
 import store from './store/store';
-import Navbar from './componentes/estaticos/navbar/Navbar';
+
+import './App.css'
+
 function App() {
   return (
     <Provider store={store}>
