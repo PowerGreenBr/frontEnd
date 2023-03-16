@@ -24,40 +24,25 @@ function App() {
     <Provider store={store}>
       <ToastContainer />
       <Router>
-      <Navbar />
-    
+        <Navbar />
         <div style={{ minHeight: '100vh' }}>
-        <Routes>
-        <Route path="/" element={<Login />} />
-
-        <Route path="/login" element={<Login />} />
-
-        <Route path="/home" element={<Home />} />
-
-        <Route path="/cadastro" element={<CadastroUsuario />} />
-
-        <Route path="/planos" element={<ListaPlanos />} />
-
-        <Route path="/produtos" element={<ListaProduto />} />
-
-        <Route path="/CadastroProduto" element={<CadastroProduto />} />
-
-        <Route path="/CadastroProduto/:id" element={<CadastroProduto />} />
-
-        <Route path="/CadastroPlanos" element={<CadastroPlanos />} />
-
-        <Route path="/CadastroPlanos/:id" element={<CadastroPlanos />} />
-
-        <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-
-        <Route path="/deletarPlanos/:id" element={<DeletarPlanos/>} />
-
-
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/cadastro" element={<CadastroUsuario />} />
+            <Route path="/planos" element={<ListaPlanos />} />
+            <Route path="/produtos" element={<ListaProduto />} />
+            <Route path="/cadastrar-produto" element={<CadastroProduto />} />
+            <Route path="/cadastrar-planos" element={<CadastroPlanos />} />
+            <Route path="/editar-produto/:id" element={<CadastroProduto />} />
+            <Route path="/editar-planos/:id" element={<CadastroPlanos />} />
+            <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
+            <Route path="/deletar-planos/:id" element={<DeletarPlanos/>} />
+          </Routes>
         </div>
-    
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
     </Provider>
   );
 }
