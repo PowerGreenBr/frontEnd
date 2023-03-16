@@ -10,8 +10,8 @@ import { addToken } from '../../../store/tokens/actions';
 import { toast } from 'react-toastify';
 function Navbar() {
     let dispatch = useDispatch()
-    const token = useSelector<TokenState, TokenState['tokens']>(
-        (state) => state.tokens
+    const token = useSelector<TokenState, TokenState['token']>(
+        (state) => state.token
     );
     let navigate = useNavigate();
 

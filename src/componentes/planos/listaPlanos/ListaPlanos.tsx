@@ -44,7 +44,7 @@ function ListaPlanos() {
               Planos
             </Typography>
             <Typography variant="h5" component="h2">
-            {planos.descricao}
+            {planos.nome}
             </Typography>
           </CardContent>
           <CardActions>

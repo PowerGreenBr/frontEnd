@@ -59,7 +59,7 @@ function DeletarPlanos() {
                 Deseja deletar o Plano:
               </Typography>
               <Typography color="textSecondary">
-                {Planos?.descricao}
+                {Planos?.nome}
               </Typography>
             </Box>
           </CardContent>

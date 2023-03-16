@@ -17,7 +17,8 @@ function CadastroPlanos() {
     const [token, setToken] = useLocalStorage('token');
     const [planos, setPlanos] = useState<Planos>({
         id: 0,
-        descricao: ''
+        nome: '',
+        preco: 0
 
     })
 
@@ -111,7 +112,7 @@ function CadastroPlanos() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro planos</Typography>
-                <TextField value={planos.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlanos(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={planos.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlanos(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
