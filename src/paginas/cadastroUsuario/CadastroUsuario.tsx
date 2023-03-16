@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import './CadastroUsuario.css';
 import { cadastro } from '../../services/Services';
-import User from '../../model/User';
+import User from '../../model/Usuario';
 
 function CadastroUsuario() {
     let navigate = useNavigate();
