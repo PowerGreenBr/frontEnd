@@ -23,7 +23,7 @@ function CadastroProduto() {
     numero_saidas: 0,
     foto: '',
     descricao: '',
-    // plano: null
+    plano: null
   });
 
   const [planos, setPlanos] = useState<Planos[]>([])
@@ -32,6 +32,13 @@ function CadastroProduto() {
     preco: 0,
     nome: ''
   })
+
+useEffect(() => {
+  setProduto({
+    ...produto,
+    plano: plano
+  })
+},[plano])
 
   async function getAllPlanos() {
     await busca('/planos', setPlanos, {
