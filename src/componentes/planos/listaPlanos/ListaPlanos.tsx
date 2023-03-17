@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import './ListaPlanos.css';
-import {useNavigate} from 'react-router-dom';
-import { busca } from '../../../services/Services';
 import Planos from '../../../model/Planos';
-import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
+import { busca } from '../../../services/Services';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import './ListaPlanos.css';
 
 function ListaPlanos() {
   const [planos, setPlanos] = useState<Planos[]>([]);
@@ -28,7 +27,7 @@ function ListaPlanos() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
+      });
       navigate('/login');
     }
   }, [token]);
@@ -44,7 +43,6 @@ function ListaPlanos() {
   useEffect(() => {
     getPlanos();
   }, [planos.length]);
-
 
   return (
     <>
@@ -89,6 +87,4 @@ function ListaPlanos() {
     </>
   );
 }
-
-
 export default ListaPlanos;

@@ -50,49 +50,44 @@ function ListaProduto() {
     getProdutos();
   }, [produtos.length]);
 
-return (
+  return (
     <>
-    {
-        produtos.map(produto => (
+      {produtos.map(produto => (
         <Box m={2} >
-            <Card variant="outlined">
+          <Card variant="outlined">
             <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+              <Typography color="textSecondary" gutterBottom>
                 produto
-                </Typography>
-                <Typography variant="h5" component="h2">
+              </Typography>
+              <Typography variant="h5" component="h2">
                 {produto.nome}
-                </Typography>
-                <Typography variant="body2" component="p">
+              </Typography>
+              <Typography variant="body2" component="p">
                 {produto.plano?.nome}
-                </Typography>
-                
+              </Typography>
             </CardContent>
             <CardActions>
-                <Box display="flex" justifyContent="center" mb={1.5}>
-
-                <Link to={`/formularioproduto/${produto.id}`} className="text-decorator-none" >
-                    <Box mx={1}>
+              <Box display="flex" justifyContent="center" mb={1.5}>
+                <Link to={`/editar-produto/${produto.id}`} className="text-decorator-none" >
+                  <Box mx={1}>
                     <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                        atualizar
+                      atualizar
                     </Button>
-                    </Box>
+                  </Box>
                 </Link>
                 <Link to={`/deletarproduto/${produto.id}`} className="text-decorator-none">
-                    <Box mx={1}>
+                  <Box mx={1}>
                     <Button variant="contained" size='small' color="secondary">
-                        deletar
+                      deletar
                     </Button>
-                    </Box>
+                  </Box>
                 </Link>
-                </Box>
+              </Box>
             </CardActions>
-            </Card>
+          </Card>
         </Box>
-        ))
-    }
+      ))}
     </>
-)
+  )
 }
-
 export default ListaProduto;

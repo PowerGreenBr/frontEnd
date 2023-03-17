@@ -1,76 +1,93 @@
-import React from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import {Button} from "@material-ui/core";
-import {Box, Modal} from '@mui/material';
-import CloseIcon from '@material-ui/icons/Close';
-import './ModalProduto.css';
-import CadastroProduto from '../cadastroProduto/CadastroProduto';
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import {Box} from '@mui/material';
+import { useNavigate } from 'react-router-dom'
+import { busca } from '../../../services/Services';
+import { useSelector } from 'react-redux';
+import Produto from '../../../model/Produto';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
+function ListaProduto() {
+  let navigate = useNavigate();
 
-function getModalStyle() {
-  const top = 50 ;
-  const left = 50;
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      position: 'absolute',
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
-  }),
-);
-
-function ModalProduto () {
-  const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose}/>
-      
-      </Box>
-      
-      <CadastroProduto/>
-      
-    </div>
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state) => state.token
   );
+
+  const userId = useSelector<TokenState, TokenState['id']>(
+    (state) => state.id
+  );
+
+  useEffect(() => {
+    if (token === '') {
+      toast.error('Você precisa estar logado pra ficar aqui',{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+      navigate('/login');
+    }
+  });
+
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+
+  async function getProdutos() {
+    await busca('/produtos', setProdutos, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
+
+  useEffect(() => {
+    getProdutos();
+  }, [produtos.length]);
 
   return (
-    <div>
-      <Button
-        variant="outlined"
-        className="btnModal"
-        onClick={handleOpen}>Novo produto</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-    </div>
-  );
+    <>
+      {produtos.map(produto => (
+        <Box m={2} >
+          <Card variant="outlined">
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                produto
+              </Typography>
+              <Typography variant="h5" component="h2">
+                {produto.nome}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {produto.plano?.nome}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Box display="flex" justifyContent="center" mb={1.5}>
+                <Link to={`/editar-produto/${produto.id}`} className="text-decorator-none" >
+                  <Box mx={1}>
+                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      atualizar
+                    </Button>
+                  </Box>
+                </Link>
+                <Link to={`/deletarproduto/${produto.id}`} className="text-decorator-none">
+                  <Box mx={1}>
+                    <Button variant="contained" size='small' color="secondary">
+                      deletar
+                    </Button>
+                  </Box>
+                </Link>
+              </Box>
+            </CardActions>
+          </Card>
+        </Box>
+      ))}
+    </>
+  )
 }
-export default ModalProduto;
+export default ListaProduto;

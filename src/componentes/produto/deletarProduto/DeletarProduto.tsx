@@ -50,7 +50,7 @@ function DeletarProduto() {
 
   function sim() {
     navigate('/produtos');
-    deleteId(`/deletarproduto/${id}`, {
+    deleteId(`/produtos/${id}`, {
       headers: {
         Authorization: token,
       },

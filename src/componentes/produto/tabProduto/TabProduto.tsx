@@ -7,10 +7,10 @@ import './TabProduto.css';
 
 
 function TabProduto() {
-    const [value, setValue] = useState('1')
-    function handleChange(event: React.ChangeEvent<{}>, newValue: string){
-        setValue(newValue);
-    }
+  const [value, setValue] = useState('1')
+  function handleChange(event: React.ChangeEvent<{}>, newValue: string){
+    setValue(newValue);
+  }
   return (
     <>
       <TabContext value={value}>

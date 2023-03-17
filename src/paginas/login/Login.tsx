@@ -119,7 +119,7 @@ function Login() {
       <Grid xs={6} className='img'>
       </Grid>
     </Grid>
-);
-
+  );
 }
 export default Login;
+
