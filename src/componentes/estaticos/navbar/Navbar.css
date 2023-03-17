@@ -1,0 +1,16 @@
+.navbarColor {
+  color: #fff;
+}
+a .navbarColor {
+  color: #fff;
+  transition: 300ms;
+}
+.sair {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+a .navbarColor:hover, .sair:hover {
+  scale: 1.1;
+
+}

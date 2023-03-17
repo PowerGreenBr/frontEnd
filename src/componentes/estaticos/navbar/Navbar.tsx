@@ -43,41 +43,41 @@ function Navbar() {
 					<Box display="flex" justifyContent="start">
 						<Link to="/home" className="text-decorator-none">
 							<Box mx={1} className='cursor'>
-								<Typography variant="h6" color="inherit">
+								<Typography className='navbarColor' variant="h6" color="inherit">
 									Home
 								</Typography>
 							</Box>
 						</Link>
 						<Link to="/produtos" className="text-decorator-none">
 							<Box mx={1} className='cursor'>
-								<Typography variant="h6" color="inherit">
+								<Typography className='navbarColor' variant="h6" color="inherit">
 									Produtos
 								</Typography>
 							</Box>
 						</Link>
 						<Link to="/planos" className="text-decorator-none">
 							<Box mx={1} className='cursor'>
-								<Typography variant="h6" color="inherit">
+								<Typography className='navbarColor' variant="h6" color="inherit">
 									Planos
 								</Typography>
 							</Box>
 						</Link>
 						<Link to="/cadastrar-planos" className="text-decorator-none">
 							<Box mx={1} className='cursor'>
-								<Typography variant="h6" color="inherit">
+								<Typography className='navbarColor' variant="h6" color="inherit">
 									Cadastrar Plano
 								</Typography>
 							</Box>
 						</Link>
 						<Link to="/cadastrar-produto" className="text-decorator-none">
 							<Box mx={1} className='cursor'>
-								<Typography variant="h6" color="inherit">
+								<Typography className='navbarColor' variant="h6" color="inherit">
 									Cadastrar Produto
 								</Typography>
 							</Box>
 						</Link>
-						<Box mx={1} className='cursor' onClick={goLogout}>
-							<Typography variant="h6" color="inherit">
+						<Box mx={1} className='sair' onClick={goLogout}>
+							<Typography className='navbarColor' variant="h6" color="inherit">
 								Sair
 							</Typography>
 						</Box>
