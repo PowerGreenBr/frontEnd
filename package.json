@@ -10,6 +10,7 @@
     "@material-ui/lab": "^5.0.0-alpha.44",
     "@mui/icons-material": "5.0.5",
     "@mui/material": "5.0.6",
+    "@trendyol-js/react-carousel": "^3.0.2",
     "@types/node": "^16.18.13",
     "@types/react": "^17",
     "@types/react-dom": "^17",

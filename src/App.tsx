@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import Navbar from './componentes/estaticos/navbar/Navbar';
-import Home from './paginas/home/Home';
 import Footer from './componentes/estaticos/footer/Footer';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
@@ -18,6 +17,7 @@ import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
 import store from './store/store';
 
 import './App.css'
+import Home from './paginas/home/Home';
 
 export default function App() {
   return (
@@ -27,7 +27,7 @@ export default function App() {
         <Navbar />
         <div style={{ minHeight: '100vh' }}>
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cadastro" element={<CadastroUsuario />} />

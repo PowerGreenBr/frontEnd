@@ -14,3 +14,11 @@ a .navbarColor:hover, .sair:hover {
   scale: 1.1;
 
 }
+
+.espaco{
+  padding-left: 35px ;
+}
+
+.centro{
+  justify-items:'';
+}

@@ -1,0 +1,14 @@
+
+  .img{
+    width: 630px;
+    height: 330px;
+    align-items:center !important;
+    justify-content: center !important;
+    justify-items: center !important;
+  }
+  
+  .caixa{
+    text-align:'center' !important;
+  }
+  
+  
