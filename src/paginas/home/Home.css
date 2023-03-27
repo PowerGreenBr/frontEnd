@@ -10,5 +10,10 @@
   .caixa{
     text-align:'center' !important;
   }
+
+  .carousel {
+    display: flex;
+    align-items: center;
+  }
   
   
