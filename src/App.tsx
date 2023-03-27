@@ -18,6 +18,7 @@ import store from './store/store';
 
 import './App.css'
 import Home from './paginas/home/Home';
+import VendaPlanos from './componentes/planos/vendaPlanos/VendaPlanos';
 
 export default function App() {
   return (
@@ -25,13 +26,14 @@ export default function App() {
       <ToastContainer />
       <Router>
         <Navbar />
-        <div style={{ minHeight: '100vh' }}>
+        <div style={{ minHeight: '100vh', backgroundColor: '#defdc4' }}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cadastro" element={<CadastroUsuario />} />
             <Route path="/planos" element={<ListaPlanos />} />
+            <Route path="/assinar" element={<VendaPlanos />} />
             <Route path="/produtos" element={<ListaProduto />} />
             <Route path="/cadastrar-produto" element={<CadastroProduto />} />
             <Route path="/cadastrar-planos" element={<CadastroPlanos />} />
