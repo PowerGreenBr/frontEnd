@@ -44,7 +44,7 @@ function Navbar() {
 	</Box>
 	
 			<AppBar  position="static">
-			<Toolbar variant="dense" style={{ backgroundColor: "#4ca004" }}>
+			<Toolbar variant="dense" style={{ backgroundColor: "#4ca004" , justifyContent: 'center'}}>
 					
 					<Box display="flex" >
 						<Link to="/home" className="text-decorator-none">
@@ -65,6 +65,13 @@ function Navbar() {
 							<Box mx={1} className='cursor'>
 								<Typography className='espaco navbarColor' variant="h6" color="inherit">
 									Planos
+								</Typography>
+							</Box>
+						</Link>
+						<Link to="/assinar" className="text-decorator-none">
+							<Box mx={1} className='cursor'>
+								<Typography className='espaco navbarColor' variant="h6" color="inherit">
+									Assinatura
 								</Typography>
 							</Box>
 						</Link>
