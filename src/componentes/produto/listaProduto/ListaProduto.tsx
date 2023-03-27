@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import Produto from '../../../model/Produto';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import './ListaProduto.css'
 
 function ListaProduto() {
   let navigate = useNavigate();
@@ -65,6 +66,7 @@ function ListaProduto() {
               <Typography variant="body2" component="p">
                 {produto.plano?.nome}
               </Typography>
+              <img className='fotoProduto' src={produto.foto} alt="" />
             </CardContent>
             <CardActions>
               <Box display="flex" justifyContent="center" mb={1.5}>
