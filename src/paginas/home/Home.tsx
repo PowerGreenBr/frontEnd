@@ -9,9 +9,9 @@ export default function Home (){
 		<>
     <Box textAlign='center'>
     <Typography >
-			<h1 >Locação de baterias para veículos elétricos por assinatura </h1>
+			<h1 >Locação de Baterias Para Veículos Elétricos Por Assinatura </h1>
 			</Typography>
-      <p>Bem-vindo à Power Green BR,
+      <p >Bem-vindo à Power Green BR,
         a empresa líder em locação de baterias para veículos elétricos
         por assinatura. Estamos comprometidos em fornecer uma solução 
         sustentável e acessível para a mobilidade elétrica, permitindo
