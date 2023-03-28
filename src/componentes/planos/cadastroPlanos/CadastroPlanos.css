@@ -1,12 +1,12 @@
 
 .topo{
 margin-top: 50px;
-background: rgba(12, 242, 20, 0.38);
+background: rgba(124, 239, 127, 0.38);
 border-radius: 1px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3.4px);
 -webkit-backdrop-filter: blur(3.4px);
-border: 1px solid rgba(221, 11, 24, 0.74);
+border: 1px solid rgba(1, 246, 25, 0.74);
 align-items:center !important;
 width: 30px;
 text-align: center;
