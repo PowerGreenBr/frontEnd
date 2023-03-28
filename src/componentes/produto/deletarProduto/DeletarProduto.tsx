@@ -55,7 +55,7 @@ function DeletarProduto() {
         Authorization: token,
       },
     });
-    toast.info('Postagem deletada com sucesso',{
+    toast.info('Produto deletado com sucesso',{
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,

@@ -1,0 +1,73 @@
+.content {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cardProduto {
+    border: solid 2px var(--green-500);
+    border-radius: 5px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cardProduto span {
+    font-weight: bold;
+}
+
+.imgProduto {
+    margin: 0;
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imgProduto img{
+    object-fit: contain;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+}
+
+.imgProduto a {
+    border-radius: 50%;
+    background: var(--white);
+    border: 0;
+    outline: solid 2px var(--green-500);
+    color: var(--gray-500);
+    margin-left: 90%;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgProduto>a {
+    margin-top: .5rem;
+}
+.imgProduto>a+a {
+    margin-top: 2rem;
+}
+
+.alterar:hover {
+    color: var(--green-500);
+}
+
+.apagar:hover {
+    color: var(--red-500);
+}
+
+.infoProduto {
+    background: var(--green-500);
+    margin: 0;
+    padding: .5rem;
+    color: var(--white);
+}

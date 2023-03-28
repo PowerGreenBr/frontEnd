@@ -99,7 +99,7 @@ useEffect(() => {
             Authorization: token,
           },
         });
-        toast.success('Tema cadastrado com sucesso',{
+        toast.success('Produto cadastrado com sucesso',{
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -130,7 +130,7 @@ useEffect(() => {
             Authorization: token,
           },
         });
-        toast.success('Tema cadastrado com sucesso',{
+        toast.success('Produto cadastrado com sucesso',{
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,

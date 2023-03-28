@@ -8,7 +8,10 @@ import { useSelector } from 'react-redux';
 import Produto from '../../../model/Produto';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
-import './ListaProduto.css'
+
+import styles from './ListaProduto.module.css';
+import { ModeEditOutline } from '@mui/icons-material';
+import { DeleteForever } from '@material-ui/icons';
 
 function ListaProduto() {
   let navigate = useNavigate();
@@ -52,44 +55,30 @@ function ListaProduto() {
   }, [produtos.length]);
 
   return (
-    <>
-      {produtos.map(produto => (
-        <Box m={2} >
-          <Card variant="outlined">
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
-                produto
-              </Typography>
-              <Typography variant="h5" component="h2">
-                {produto.nome}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {produto.plano?.nome}
-              </Typography>
-              <img className='fotoProduto' src={produto.foto} alt="" />
-            </CardContent>
-            <CardActions>
-              <Box display="flex" justifyContent="center" mb={1.5}>
-                <Link to={`/editar-produto/${produto.id}`} className="text-decorator-none" >
-                  <Box mx={1}>
-                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                      atualizar
-                    </Button>
-                  </Box>
-                </Link>
-                <Link to={`/deletarproduto/${produto.id}`} className="text-decorator-none">
-                  <Box mx={1}>
-                    <Button variant="contained" size='small' color="secondary">
-                      deletar
-                    </Button>
-                  </Box>
-                </Link>
-              </Box>
-            </CardActions>
-          </Card>
-        </Box>
+    <main className={styles.content}>
+      {produtos.map(produto=> (
+        <div className={styles.cardProduto}>
+          <div className={styles.imgProduto} style={{backgroundImage:`url(${produto.foto})`}}>
+            <Link 
+              to={`/editar-produto/${produto.id}`}
+              className={styles.alterar}
+            >
+              <ModeEditOutline />
+            </Link>
+    
+            <Link 
+              to={`/deletarproduto/${produto.id}`}
+            >
+              <DeleteForever className={styles.apagar}/>
+            </Link>
+          </div>
+          <div className={styles.infoProduto}>
+            <p><span>Produto: </span>{produto.nome}</p>
+            <p><span>Plano: </span>{produto.plano?.nome}</p>
+          </div>
+        </div>
       ))}
-    </>
+    </main>
   )
 }
 export default ListaProduto;
