@@ -44,7 +44,7 @@ function DeletarPlanos() {
         Authorization: token,
       },
     });
-    toast.info('Tema apagado com sucesso',{
+    toast.info('Plano apagado com sucesso',{
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,

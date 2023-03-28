@@ -7,7 +7,9 @@ import {Box} from '@mui/material';
 import Planos from '../../../model/Planos';
 import { busca } from '../../../services/Services';
 import { TokenState } from '../../../store/tokens/tokensReducer';
-import './ListaPlanos.css';
+import { DeleteForever, ModeEditOutline } from '@mui/icons-material';
+
+import styles from './ListaPlanos.module.css';
 
 function ListaPlanos() {
   const [planos, setPlanos] = useState<Planos[]>([]);
@@ -45,46 +47,30 @@ function ListaPlanos() {
   }, [planos.length]);
 
   return (
-    <>
-    {
-      planos.map(planos =>(
-      <Box m={2} >
-        <Card variant="outlined">
-          <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Planos
-            </Typography>
-            <Typography variant="h5" component="h2">
-            {planos.nome}
-            </Typography>
-            <Typography variant="h5" component="h2">
-            {planos.preco}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="center" mb={1.5} >
-
-              <Link to={`/editar-planos/${planos.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                    atualizar
-                  </Button>
-                </Box>
-              </Link>
-              <Link to={`/deletarPlanos/${planos.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" size='small' color="secondary">
-                    deletar
-                  </Button>
-                </Box>
-              </Link>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
-      ))
-      }
-    </>
+    <main className={styles.content}>
+      {planos.map(plano=> (
+        <div className={styles.cardPlano}>
+          <div className={styles.imgPlano} style={{backgroundImage:`url(https://i.imgur.com/gl3eMog.png)`}}>
+            <Link 
+              to={`/editar-planos/${plano.id}`}
+              className={styles.alterar}
+            >
+              <ModeEditOutline />
+            </Link>
+    
+            <Link 
+              to={`/deletarPlanos/${plano.id}`}
+            >
+              <DeleteForever className={styles.apagar}/>
+            </Link>
+          </div>
+          <div className={styles.infoProduto}>
+            <p><span>Plano: </span>{plano.nome}</p>
+            <p><span>R$ </span>{plano.preco}</p>
+          </div>
+        </div>
+      ))}
+  </main>
   );
 }
 export default ListaPlanos;

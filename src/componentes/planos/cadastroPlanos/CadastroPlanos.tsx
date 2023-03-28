@@ -67,7 +67,7 @@ function CadastroPlanos() {
             Authorization: token,
           },
         });
-        toast.success('Tema cadastrado com sucesso',{
+        toast.success('Plano cadastrado com sucesso',{
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -98,7 +98,7 @@ function CadastroPlanos() {
             Authorization: token,
           },
       });
-      toast.success('Tema cadastrado com sucesso',{
+      toast.success('Plano cadastrado com sucesso',{
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
