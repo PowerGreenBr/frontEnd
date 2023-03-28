@@ -89,14 +89,6 @@ function Login() {
 
   return (
     <>
-      <div className={styles.header}>
-        <div>
-          <div>
-            <p>PowerGreen</p>
-            <p>Brasil</p>
-          </div>
-        </div>
-      </div>
       <div className={styles.content}>
         <aside>
           <img src='https://i.imgur.com/gl3eMog.png' alt="" />
