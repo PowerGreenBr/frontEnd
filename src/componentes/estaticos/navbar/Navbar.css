@@ -1,24 +1,205 @@
-.navbarColor {
-  color: #fff;
+.logo {
+  color: var(--white  );
 }
-a .navbarColor {
-  color: #fff;
-  transition: 300ms;
+.logo>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.logo>div>:first-child{
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.logo p {
+  line-height: 1.1rem;
+}
+
+header{
+  width: 100%;
+  background-color: var(--green-500);
+
+}
+
+header .container {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  height: 60%;
+  width: 90%; 
+  margin: auto;
+  padding: .5rem 0;
+}
+
+header img {
+  width: 37px;
+  margin-right: 0;
+  padding: 15px 0;
+}
+header nav {
+  display: flex;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav ul li a, .sair {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(241, 239, 239);
+  font-family: 'Roboto', sans-serif ;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  transition: all 250ms linear 0s;
 }
 .sair {
   cursor: pointer;
-  transition: 300ms;
 }
 
-a .navbarColor:hover, .sair:hover {
+header nav ul li a:hover {
   scale: 1.1;
+  font-weight: bold;
+ 
+}
+.sair:hover {
+  scale: 1.1;
+  font-weight: bold;
+ 
+}
+header nav ul li a{
+  position: relative;
+  animation-name: menu;
+  animation-duration: 1s;
+  transition: 100ms;
+}
+
+header nav ul li a .FiLogOut{
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+@keyframes menu {
+  0%   { left:0px; top: -100px;}
+  100% { left: 0px; top:0px;}
+  
+}
+
+@media (max-width: 630px){
+  html{
+    font-size: 70%;
+  }
+ .hero .container{
+   flex-direction: column;
+   text-align: center;
+ }
+
+ .form-group{
+   display: block;
+ }
+}
+
+@media (max-width: 1120px){
+ 
+   .menu-section nav{
+    display: none;
+  }
+
+  .one,
+  .two,
+  .three{
+    background-color: var(--white);
+    height: 5px;
+    width: 100%;
+    margin: 6px auto;
+    transition-duration: 0.3s;
+  }
+  .menu-toggle{
+    width: 40px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  /*Fullscreen*/
+  .menu-section.on {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--green-500);
+    z-index: 10; /*camada acima, evitar o scrool dos itens a baixo*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-section.on nav{
+    display: block;
+  }
+
+  
+  .menu-section.on .menu-toggle{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+  }
+
+  
+  .menu-section.on .menu-toggle .one{
+    transform: rotate(45deg) translate(7px, 7px);
+    background-color: #fff;
+  }
+
+  .menu-section.on .menu-toggle .two{
+   opacity: 0;
+
+  }
+
+  .menu-section.on .menu-toggle .three{
+    transform: rotate(-45deg) translate(8px, -9px);
+    background-color: #fff;
+  }
+
+  .menu-section.on nav ul{
+    text-align: center;
+    display: block;
+  }
+
+  .menu-section.on nav ul a{ 
+   transition-duration:  0.5s;
+   font-size: 2.0rem;
+    display: block;
+    color: var(--white);
+    padding: 1.8rem;
+  }
+  
+header nav ul li a .FiLogOut{
+width: 40px;
+}
+  .menu-section.on nav ul .hide{ 
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0rem;
+     font-size: 1.6rem;
+   }
 
 }
 
-.espaco{
-  padding-left: 35px ;
-}
+@media (max-width: 320px){
+  #form h3{
+    font-size: 2rem;
+  }
 
-.centro{
-  justify-items:'';
 }
