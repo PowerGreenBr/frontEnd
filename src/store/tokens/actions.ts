@@ -1,6 +1,6 @@
-export type Action = {type: "ADD_TOKEN" | "ADD_ID"; payload: string};
+export type Action = {type: "ADD_TOKEN" | "ADD_ID"; payload: string}
 
-export const addToken = (token: string): Action =>({
+export const addToken = (token: string) =>({
     type: "ADD_TOKEN",
     payload: token
 });
