@@ -1,0 +1,24 @@
+.footer {
+  width: 100%;
+  background: var(--green-500);
+  padding: .5rem 0 ;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.footer, h3 a, a {
+  color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  transition: 200ms;
+}
+
+a:hover {
+  scale: 1.2;
+}
