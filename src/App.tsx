@@ -16,9 +16,10 @@ import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto'
 import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
 import store from './store/store';
 
-import './App.css'
 import Home from './paginas/home/Home';
 import VendaPlanos from './componentes/planos/vendaPlanos/VendaPlanos';
+
+import styles from './global.module.css';
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
       <ToastContainer />
       <Router>
         <Navbar />
-        <div style={{ minHeight: '100vh', backgroundColor: '#defdc4' }}>
+        <div className={styles.container}>
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
