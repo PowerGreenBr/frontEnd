@@ -32,6 +32,10 @@ function Navbar() {
 	}
 
 	return(
+		<>
+		<div className='banner'>
+			<img src="https://i.imgur.com/gl3eMog.png" alt="" />
+		</div>
 		<header>
     	<div className="container">
 				<div className='logo'>
@@ -89,6 +93,7 @@ function Navbar() {
 				</div>
 			</div>
 		</header>
+		</>
 	)
 }
 export default Navbar;
