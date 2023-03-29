@@ -16,4 +16,11 @@
     align-items: center;
   }
   
-  
+  .content {
+    background-image: url('https://i.imgur.com/gl3eMog.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    backface-visibility: hidden;
+    background-size: cover;
+    height: 100vh;
+  }

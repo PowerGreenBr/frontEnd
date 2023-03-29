@@ -45,7 +45,7 @@ function ListaPlanos() {
   useEffect(() => {
     getPlanos();
   }, [planos.length]);
-
+  
   return (
     <main className={styles.content}>
       {planos.map(plano=> (

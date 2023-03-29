@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
+import Home from './paginas/home/Home';
 import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import Login from './paginas/login/Login';
@@ -16,7 +17,6 @@ import DeletarProduto from './componentes/produto/deletarProduto/DeletarProduto'
 import DeletarPlanos from './componentes/planos/deletarPlanos/DeletarPlanos';
 import store from './store/store';
 
-import Home from './paginas/home/Home';
 import VendaPlanos from './componentes/planos/vendaPlanos/VendaPlanos';
 
 import styles from './global.module.css';

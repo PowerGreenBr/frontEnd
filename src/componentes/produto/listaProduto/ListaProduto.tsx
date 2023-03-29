@@ -53,7 +53,7 @@ function ListaProduto() {
   useEffect(() => {
     getProdutos();
   }, [produtos.length]);
-
+  
   return (
     <main className={styles.content}>
       {produtos.map(produto=> (

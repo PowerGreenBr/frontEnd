@@ -33,9 +33,9 @@ function Navbar() {
 
 	return(
 		<>
-		<div className='banner'>
+		{/* <div className='banner'>
 			<img src="https://i.imgur.com/gl3eMog.png" alt="" />
-		</div>
+		</div> */}
 		<header>
     	<div className="container">
 				<div className='logo'>

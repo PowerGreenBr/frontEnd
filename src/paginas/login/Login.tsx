@@ -1,14 +1,14 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Grid, Typography, TextField, Button } from '@material-ui/core';
-import { Box } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
-import { login } from '../../services/Services';
-import UsuarioLogin from '../../model/UsuarioLogin';
-import { useDispatch } from 'react-redux';
+import {TextField} from '@material-ui/core';
 import { toast } from 'react-toastify';
+
 import { addId, addToken } from '../../store/tokens/actions';
+import UsuarioLogin from '../../model/UsuarioLogin';
+import { login } from '../../services/Services';
 
 import styles from './Login.module.css';
+import { useDispatch } from 'react-redux';
 
 function Login() {
   let navigate = useNavigate();
@@ -41,14 +41,14 @@ function Login() {
       [e.target.name]: e.target.value
     })
   }
-
   
   async function onSubmit(e: ChangeEvent<HTMLFormElement>){
     e.preventDefault();
     try{
-      await login('/usuarios/logar', userLogin, setToken)
+      setIsLoading(true)
+      await login("/usuarios/logar", userLogin, setRespUserLogin)
       toast.success('Usuário logado com sucesso!', {
-        position: "top-center",
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -59,8 +59,8 @@ function Login() {
       });
     }catch(error){
       setIsLoading(false)
-      toast.warning('Dados do usuário inconsistentes. Erro ao logar!', {
-        position: "top-center",
+      toast.warning('Usuárioe/ou senha inválidos', {
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -77,15 +77,15 @@ function Login() {
       dispatch(addToken(token))
       navigate('/produtos')
     }
-  }, [token])
+  }, [dispatch, navigate, token])
 
   useEffect(()=> {
     if(respUserLogin.token !== '') {
       dispatch(addToken(respUserLogin.token))
-      dispatch(addId(respUserLogin.id.toString()))
+      dispatch(addId(`${respUserLogin.id}`))
       navigate('/produtos')
     }
-  }, [respUserLogin.token])
+  }, [dispatch, navigate, respUserLogin.id, respUserLogin.token])
 
   return (
     <>
