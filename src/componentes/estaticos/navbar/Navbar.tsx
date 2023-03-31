@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
-import './Navbar.css'
+
+import styles from './Navbar.module.css';
 
 
 function Navbar() {
@@ -19,7 +20,7 @@ function Navbar() {
 	function goLogout() {
 		dispatch(addToken(''))
 		toast.info('Usuário deslogado', {
-			position: "top-center",
+			position: "top-right",
 			autoClose: 2000,
 			hideProgressBar: false,
 			closeOnClick: true,
@@ -32,14 +33,10 @@ function Navbar() {
 	}
 
 	return(
-		<>
-		{/* <div className='banner'>
-			<img src="https://i.imgur.com/gl3eMog.png" alt="" />
-		</div> */}
-		<header>
-    	<div className="container">
+		<header className={styles.content}>
+    	<div className={styles.container}>
 				<Link to="/home">
-					<div className='logo'>
+					<div className={styles.logo}>
 						<div>
 							<p>PowerGreen</p>
 							<p>Brasil</p>
@@ -47,11 +44,11 @@ function Navbar() {
 	      	</div>
 				</Link>
 
-      	<div className = { classOn ? 'menu-section on' : 'menu-section'} onClick={() => setClassOn(!classOn)}>
-					<div className="menu-toggle">
-						<div className="one"></div>
-						<div className="two"></div>
-						<div className="three"></div>
+      	<div className = { classOn ? `${styles['menu-section']} ${styles.on}` : `${styles['menu-section']}`} onClick={() => setClassOn(!classOn)}>
+					<div className={styles['menu-toggle']}>
+						<div className={styles.one}></div>
+						<div className={styles.two}></div>
+						<div className={styles.three}></div>
 					</div>
 
 					<nav>
@@ -71,18 +68,10 @@ function Navbar() {
             			ASSINATURAS
 								</Link>
               </li>
-              {/* <li>
-								<Link to='/cadastrar-planos'>
-            			CADASTRAR PLANO
-								</Link>
-              </li>
-              <li>
-								<Link to='/cadastrar-produto'>
-            			CADASTRAR PRODUTO
-								</Link>
-              </li> */}
+								{/* <Link to='/cadastrar-planos'>
+								<Link to='/cadastrar-produto'> */}
               <li onClick={goLogout}>
-                <span className='sair'>SAIR</span>
+                <span className={styles.sair}>SAIR</span>
               </li>
             </ul>
           </nav>
@@ -90,7 +79,6 @@ function Navbar() {
 				</div>
 			</div>
 		</header>
-		</>
 	)
 }
 export default Navbar;

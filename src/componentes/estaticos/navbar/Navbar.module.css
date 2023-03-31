@@ -1,3 +1,9 @@
+.content {
+  width: 80vw;
+  margin: 0 auto;
+  border-radius: 0 0 8px 8px;
+}
+
 .banner {
   width: 100%;
 }
@@ -73,6 +79,7 @@ header nav ul li a, .sair {
 }
 .sair {
   cursor: pointer;
+  font-size: 1rem;
 }
 
 header nav ul li a:hover {
@@ -116,12 +123,17 @@ header nav ul li a .FiLogOut{
  .form-group{
    display: block;
  }
+
 }
 
 @media (max-width: 1120px){
  
    .menu-section nav{
     display: none;
+  }
+
+  .sair {
+    font-size: 2rem;
   }
 
   .one,
@@ -186,24 +198,23 @@ header nav ul li a .FiLogOut{
   }
 
   .menu-section.on nav ul a{ 
-   transition-duration:  0.5s;
-   font-size: 2.0rem;
+    transition-duration:  0.5s;
+    font-size: 2.0rem;
     display: block;
     color: var(--white);
     padding: 1.8rem;
   }
   
-header nav ul li a .FiLogOut{
-width: 40px;
-}
+  header nav ul li a .FiLogOut{
+    width: 40px;
+  }
   .menu-section.on nav ul .hide{ 
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     padding: 0rem;
-     font-size: 1.6rem;
-   }
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem;
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 320px){
