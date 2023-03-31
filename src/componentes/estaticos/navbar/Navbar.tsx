@@ -38,12 +38,14 @@ function Navbar() {
 		</div> */}
 		<header>
     	<div className="container">
-				<div className='logo'>
-					<div>
-						<p>PowerGreen</p>
-						<p>Brasil</p>
-					</div>
-      	</div>
+				<Link to="/home">
+					<div className='logo'>
+						<div>
+							<p>PowerGreen</p>
+							<p>Brasil</p>
+						</div>
+	      	</div>
+				</Link>
 
       	<div className = { classOn ? 'menu-section on' : 'menu-section'} onClick={() => setClassOn(!classOn)}>
 					<div className="menu-toggle">
@@ -55,8 +57,8 @@ function Navbar() {
 					<nav>
 						<ul>
 							<li>
-								<Link to='/home'>
-									HOME
+								<Link to='/planos'>
+	            		PLANOS
 								</Link>
 							</li>
 							<li>
@@ -64,17 +66,12 @@ function Navbar() {
                 PRODUTOS
 								</Link>
 							</li>
-							<li>
-								<Link to='/planos'>
-	            		PLANOS
-								</Link>
-							</li>
               <li>
 								<Link to='/assinar'>
             			ASSINATURAS
 								</Link>
               </li>
-              <li>
+              {/* <li>
 								<Link to='/cadastrar-planos'>
             			CADASTRAR PLANO
 								</Link>
@@ -83,7 +80,7 @@ function Navbar() {
 								<Link to='/cadastrar-produto'>
             			CADASTRAR PRODUTO
 								</Link>
-              </li>
+              </li> */}
               <li onClick={goLogout}>
                 <span className='sair'>SAIR</span>
               </li>
