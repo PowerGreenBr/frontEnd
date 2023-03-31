@@ -40,7 +40,8 @@
   padding-top: 3rem;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr 1fr;
+  /* grid-template-columns: repeat(2, 1fr); */
   gap: 2rem;
   justify-content: center;
   align-items: start;
@@ -95,6 +96,10 @@
   font-weight: bold;
   color: var(--gray-300);
   margin-left: .5rem;
+  transition: 100ms;
+}
+.content footer p a:hover {
+  color: var(--green-500);
 }
 
 @media screen and (max-width: 768px) {

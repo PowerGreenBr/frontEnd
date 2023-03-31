@@ -2,6 +2,8 @@
   width: 80vw;
   margin: 0 auto;
   border-radius: 0 0 8px 8px;
+  box-shadow: 0 1px 10px 2px var(--gray-300);
+  margin-bottom: 1rem;
 }
 
 .banner {

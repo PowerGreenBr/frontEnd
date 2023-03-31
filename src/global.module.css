@@ -30,7 +30,7 @@ input:focus {
 }
 
 body {
-  background: var(--white);
+  background: var(--gray-100);
   color: var(--gray-300);
   -webkit-font-smoothing: antialiased;
 }
