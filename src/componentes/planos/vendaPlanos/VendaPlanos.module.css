@@ -1,22 +1,38 @@
+.content {
+  width: 80vw;
+  margin: 1rem auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .assinatura {
-  text-align: center;
   font-size: 2rem;
   margin: 0;
-  padding: 2rem;
+  padding: 0 5rem 1rem;
+}
+.assinatura span {
+  font-weight: normal;
+  font-size: 1.2rem;
 }
 
 .cardsLine {
-  display: flex;
-  justify-content: center;
-  width: 100vw;
   margin: 0 auto;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   gap: 1rem;
 }
 
 .card {
-  border: 2px solid #131515;
   border-radius: 8px;
   overflow: hidden;
+
+  box-shadow: 0 1px 10px 2px var(--gray-300);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,4 +67,10 @@
 
 .fotoProdutoCard {
   width: 35%;
+}
+
+@media screen and (max-width: 1120px) {
+  .content {
+    width: 80vw;
+  }
 }

@@ -6,7 +6,7 @@ import Planos from '../../../model/Planos';
 import { busca } from '../../../services/Services';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
-import './VendaPlanos.css'
+import styles from './VendaPlanos.module.css';
 
 function VendaPlanos() {
   const [planos, setPlanos] = useState<Planos[]>([]);
@@ -44,20 +44,19 @@ function VendaPlanos() {
   }, [planos.length]);
 
   return (
-    <>
-      <h2 className='assinatura'>Assinar Planos</h2>
-
-      <div className="cardsLine">
+    <main className={styles.content}>
+      <h2 className={styles.assinatura}>Planos: <span>Escolha o plano que melhor atenda o seu perfil</span></h2>
+      <div className={styles.cardsLine}>
         {planos.map((plano) => (
-          <div className="card">
-          <div className="top">
+          <div className={styles.card}>
+          <div className={styles.top}>
             <div>
               <h1>{plano.nome}</h1>
               <p>Veja o que temos disponivel no plano {plano.nome}</p>
 
               {plano.produto?.map((produto) => (
                 <>
-                  <img className='fotoProdutoCard' src={produto.foto} alt="" />
+                  <img className={styles.fotoProdutoCard} src={produto.foto} alt={`${produto.nome}`} />
                 <p>{produto.nome}</p>
                 </>
               ))}
@@ -65,13 +64,13 @@ function VendaPlanos() {
 
             <h3>Valor: {Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(plano.preco)}</h3>
           </div>
-          <div className="bottom">
+          <div className={styles.bottom}>
             <button>Assinar</button>
           </div>
         </div>
         ))}
       </div>
-    </>
+    </main>
   )
 }
 
