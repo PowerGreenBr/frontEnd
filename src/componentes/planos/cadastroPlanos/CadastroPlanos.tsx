@@ -1,12 +1,13 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
-import {useNavigate, useParams } from 'react-router-dom'
-import './CadastroPlanos.css';
+import { TextField } from "@material-ui/core"
+import {Link, useNavigate, useParams } from 'react-router-dom'
 import Plano from '../../../model/Planos';
 import { buscaId, post, put } from '../../../services/Services';
 import { toast } from 'react-toastify';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { useSelector } from 'react-redux';
+
+import styles from './CadastroPlanos.module.css';
 
 function CadastroPlanos() {
   let navigate = useNavigate();
@@ -130,16 +131,46 @@ function CadastroPlanos() {
   }
   
   return (
-    <Container maxWidth="sm" className="topo">
-      <form onSubmit={onSubmit}>
-        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro plano</Typography>
-        <TextField value={plano.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-        <TextField value={plano.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} id="preco" label="preco" variant="outlined" name="preco" margin="normal" fullWidth />
-        <Button type="submit" variant="contained" color="primary">
-          Finalizar
-        </Button>
-      </form>
-    </Container>
+    <div className={styles.content}>
+      <aside>
+        <img src='https://i.imgur.com/gl3eMog.png' alt="" />
+      </aside>
+      <main>
+        <form onSubmit={onSubmit}>
+          <h1>Cadastro de plano</h1>
+          <TextField 
+            value={plano.nome} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} 
+            id="nome" 
+            label="nome do plano" 
+            variant="outlined" 
+            name="nome" 
+            margin="normal" 
+            fullWidth 
+          />
+          <TextField 
+            value={plano.preco} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} 
+            id="preco" 
+            label="preco" 
+            variant="outlined" 
+            name="preco" 
+            margin="normal" 
+            fullWidth 
+          />
+					<footer>
+						<Link to='/planos' className='text-decorator-none'>
+ 							<button className={styles.btn_cancelar}>
+								Cancelar
+							</button>
+						</Link>
+            <button type="submit">
+              Cadastrar
+            </button>
+          </footer>
+        </form>
+      </main>
+    </div>
   )
 }
 export default CadastroPlanos;

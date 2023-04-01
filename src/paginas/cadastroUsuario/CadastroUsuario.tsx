@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect, useState} from 'react';
-import { Grid, Typography, Button, TextField } from '@material-ui/core';
-import { Box } from '@mui/material';
+import { TextField } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
 import { cadastro } from '../../services/Services';
 import User from '../../model/Usuario';

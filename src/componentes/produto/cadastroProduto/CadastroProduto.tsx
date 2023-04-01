@@ -1,5 +1,5 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
-import {useNavigate, useParams } from 'react-router-dom'
+import {Link, useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
@@ -8,7 +8,8 @@ import { Container, Typography, TextField, Button, FormControl, InputLabel, Sele
 
 import Produto from '../../../model/Produto';
 import Planos from '../../../model/Planos';
-import './CadastroProduto.css';
+
+import styles from './CadastroProduto.module.css';
 
 function CadastroProduto() {
 	let navigate = useNavigate();
@@ -161,38 +162,94 @@ useEffect(() => {
     navigate('/produtos');
   }
   return (
-    <Container maxWidth="sm" className="topo">
-      <form onSubmit={onSubmit}>
-        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de produto</Typography>
-        <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-        <TextField value={produto.capacidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="capacidade" label="capacidade" variant="outlined" name="capacidade" margin="normal" fullWidth />
-        <TextField value={produto.numero_saidas} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="numero_saidas" label="numero_saidas" variant="outlined" name="numero_saidas" margin="normal" fullWidth />
-        <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
-        <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-helper-label">Plano </InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            onChange={(event) =>
-              buscaId(`/planos/${event.target.value}`, setPlano, {
-                headers: {
-                  Authorization: token,
-                },
-              })
-            }
-          >
-            {planos.map((plano) => (
-              <MenuItem value={`${plano.id}`}>{plano.nome}</MenuItem>
-            ))}
-          </Select>
+    <div className={styles.content}>
+      <aside>
+        <img src='https://i.imgur.com/gl3eMog.png' alt="" />
+      </aside>
+      <main>
+        <form onSubmit={onSubmit}>
+          <h1>Cadastro de produto</h1>
+          <TextField 
+            value={produto.nome} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+            id="descricao" 
+            label="Nome do produto" 
+            variant="outlined" 
+            name="nome" 
+            margin="normal" 
+            fullWidth 
+          />
+          <TextField 
+            value={produto.capacidade} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+            id="capacidade" 
+            label="Capacidade (wh)" 
+            variant="outlined" 
+            name="capacidade" 
+            margin="normal" 
+            fullWidth 
+          />
+          <TextField 
+          value={produto.numero_saidas} 
+          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+          id="numero_saidas" 
+          label="Número de saidas" 
+          variant="outlined" 
+          name="numero_saidas" 
+          margin="normal" 
+          fullWidth 
+          />
+          <TextField 
+          value={produto.foto} 
+          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+          id="foto" 
+          label="Foto do produto" 
+          variant="outlined" name="foto" 
+          margin="normal" 
+          fullWidth 
+          />
+          <TextField 
+          value={produto.descricao} 
+          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+          id="descricao" 
+          label="Descricao" 
+          variant="outlined" 
+          name="descricao" 
+          margin="normal" 
+          fullWidth 
+          />
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-helper-label">Planos</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              onChange={(event) =>
+                buscaId(`/planos/${event.target.value}`, setPlano, {
+                  headers: {
+                    Authorization: token,
+                  },
+                })
+              }
+            >
+              {planos.map((plano) => (
+                <MenuItem value={`${plano.id}`}>{plano.nome}</MenuItem>
+              ))}
+            </Select>
             <FormHelperText>Escolha um plano para o produto</FormHelperText>
-        </FormControl>
-        <Button type="submit" variant="contained" color="primary">
-          Finalizar
-        </Button>
-      </form>
-    </Container>
+          </FormControl>
+					<footer>
+						<Link to='/produtos' className='text-decorator-none'>
+ 							<button className={styles.btn_cancelar}>
+								Cancelar
+							</button>
+						</Link>
+            <button type="submit">
+              Cadastrar
+            </button>
+          </footer>
+        </form>
+      </main>
+    </div>
   )
 }
 export default CadastroProduto;
