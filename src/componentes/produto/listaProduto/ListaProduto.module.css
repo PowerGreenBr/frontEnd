@@ -1,73 +1,121 @@
+.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 68vw;
+	margin: 1rem auto;
+	padding-left: 2rem;
+}
+
+.content .title button {
+	padding: 1rem 1.5rem;
+	cursor: pointer;
+	margin: .5rem;
+	border-radius: 8px;
+	border: 0;
+	background: var(--green-500);
+	color: var(--white);
+	font-weight: bold;
+	transition: 100ms;
+}
+
+.content .title button:hover {
+	background: var(--green-300);
+	scale: 1;
+}
+
 .content {
-    margin: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+	width: 80vw;
+	margin: 1rem auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.lista {
+	width: 70vw;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
 }
 
 .cardProduto {
-    border: solid 2px var(--green-500);
-    border-radius: 5px;
-    margin: 0 auto;
+	background: var(--white);
+	border-radius: 5px;
+	max-width: 300px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+	box-shadow: 0 1px 10px 2px var(--gray-300);
+
+	display: flex;
+	flex-direction: column;
 }
 
 .cardProduto span {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .imgProduto {
-    margin: 0;
-    width: 300px;
-    height: 200px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+	margin: 0;
+	width: 300px;
+	height: 200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .imgProduto img{
-    object-fit: contain;
-    width: 300px;
-    height: 200px;
-    border-radius: 5px 5px 0 0;
-    margin: 0;
+	object-fit: contain;
+	width: 300px;
+	height: 200px;
+	border-radius: 5px 5px 0 0;
+	margin: 0;
 }
 
 .imgProduto a {
-    border-radius: 50%;
-    background: var(--white);
-    border: 0;
-    outline: solid 2px var(--green-500);
-    color: var(--gray-500);
-    margin-left: 90%;
-    cursor: pointer;
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	background: var(--white);
+	border: 0;
+	outline: solid 2px var(--green-500);
+	color: var(--gray-500);
+	margin-left: 85%;
+	cursor: pointer;
     
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .imgProduto>a {
-    margin-top: .5rem;
+	margin-top: .5rem;
 }
 .imgProduto>a+a {
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .alterar:hover {
-    color: var(--green-500);
+	color: var(--green-500);
 }
 
 .apagar:hover {
-    color: var(--red-500);
+	color: var(--red-500);
 }
 
 .infoProduto {
-    background: var(--green-500);
-    margin: 0;
-    padding: .5rem;
-    color: var(--white);
+	/* background: var(--green-500); */
+	margin: 0;
+	padding: 2rem;
+	color: var(--gray-500);
+	font-size: .8rem;
+	/* height: 200px; */
+}
+
+.infoProduto p {
+	line-break: auto;
+	margin-bottom: .2rem;
+	line-height: 1.2;
 }

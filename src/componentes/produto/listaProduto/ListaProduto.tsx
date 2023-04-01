@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import {Box} from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 import { busca } from '../../../services/Services';
 import { useSelector } from 'react-redux';
@@ -56,28 +54,37 @@ function ListaProduto() {
   
   return (
     <main className={styles.content}>
+      <div className={styles.title}>
+        <h1>Produtos</h1>
+        <Link to='/cadastrar-produto'>
+          <button>Cadastrar produto</button>
+        </Link>
+      </div>
+      <div className={styles.lista}>
       {produtos.map(produto=> (
         <div className={styles.cardProduto}>
           <div className={styles.imgProduto} style={{backgroundImage:`url(${produto.foto})`}}>
             <Link 
               to={`/editar-produto/${produto.id}`}
               className={styles.alterar}
-            >
+              >
               <ModeEditOutline />
             </Link>
     
             <Link 
               to={`/deletarproduto/${produto.id}`}
-            >
+              >
               <DeleteForever className={styles.apagar}/>
             </Link>
           </div>
           <div className={styles.infoProduto}>
-            <p><span>Produto: </span>{produto.nome}</p>
+            <p><span>{produto.nome} - {produto.capacidade}wh</span></p>
             <p><span>Plano: </span>{produto.plano?.nome}</p>
+            <p><span>Descrição: </span>{produto.descricao}</p>
           </div>
         </div>
       ))}
+      </div>
     </main>
   )
 }

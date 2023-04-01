@@ -48,6 +48,13 @@ function ListaPlanos() {
   
   return (
     <main className={styles.content}>
+      <div className={styles.title}>
+        <h1>Planos</h1>
+        <Link to='/cadastrar-planos'>
+          <button>Cadastrar plano</button>
+        </Link>
+      </div>
+      <div className={styles.lista}>
       {planos.map(plano=> (
         <div className={styles.cardPlano}>
           <div className={styles.imgPlano} style={{backgroundImage:`url(https://i.imgur.com/gl3eMog.png)`}}>
@@ -70,6 +77,7 @@ function ListaPlanos() {
           </div>
         </div>
       ))}
+      </div>
   </main>
   );
 }
