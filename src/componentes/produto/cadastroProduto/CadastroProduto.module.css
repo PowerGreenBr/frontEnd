@@ -1,4 +1,4 @@
-.topo{
+/* .topo{
     margin-top: 20px;
 }
 .bottom button {
@@ -19,7 +19,7 @@
 
 .topo{
   margin-top: 50px;
-  background: rgba(124, 239, 127, 0.38);
+  background: #7cef7f61;
   border-radius: 1px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.4px);
@@ -34,6 +34,9 @@
     gap: 1rem;
     height: 100%;
     justify-content: space-between;
+  } */
+  .foto label {
+    font-size: .8rem;
   }
   .fundoCadastro{
     background-image: url(https://imgur.com/iJTtX3M.jpg);

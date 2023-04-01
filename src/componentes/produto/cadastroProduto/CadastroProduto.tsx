@@ -200,10 +200,11 @@ useEffect(() => {
           fullWidth 
           />
           <TextField 
+          id="foto"
+          className={styles.foto}
           value={produto.foto} 
           onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
-          id="foto" 
-          label="Foto do produto" 
+          label="Foto do produto (https://...)" 
           variant="outlined" name="foto" 
           margin="normal" 
           fullWidth 
