@@ -54,6 +54,11 @@ function Navbar() {
 					<nav>
 						<ul>
 							<li>
+								<Link to='/sobre-nos'>
+	            		Sobre nós
+								</Link>
+							</li>
+							<li>
 								<Link to='/planos'>
 	            		PLANOS
 								</Link>
