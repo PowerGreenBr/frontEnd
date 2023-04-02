@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +8,7 @@ import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import SobreNos from './paginas/sobreNos/SobreNos';
 import ListaPlanos from './componentes/planos/listaPlanos/ListaPlanos';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
 import CadastroProduto from './componentes/produto/cadastroProduto/CadastroProduto';
@@ -42,6 +42,7 @@ export default function App() {
             <Route path="/editar-planos/:id" element={<CadastroPlanos />} />
             <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
             <Route path="/deletarPlanos/:id" element={<DeletarPlanos/>} />
+            <Route path="/sobre-nos" element={<SobreNos/>} />
           </Routes>
         </div>
         <Footer />
