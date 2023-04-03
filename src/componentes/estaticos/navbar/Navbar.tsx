@@ -59,11 +59,6 @@ function Navbar() {
 					<nav>
 						<ul>
 							<li>
-								<Link to='/sobre-nos'>
-	            		Sobre nós
-								</Link>
-							</li>
-							<li>
 								<Link to='/planos'>
 	            		PLANOS
 								</Link>
@@ -78,6 +73,11 @@ function Navbar() {
             			ASSINATURAS
 								</Link>
               </li>
+							<li>
+								<Link to='/sobre-nos'>
+	            		Sobre nós
+								</Link>
+							</li>
 								{/* <Link to='/cadastrar-planos'>
 								<Link to='/cadastrar-produto'> */}
               <li onClick={goLogout}>

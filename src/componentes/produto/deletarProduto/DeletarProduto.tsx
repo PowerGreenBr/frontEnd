@@ -7,7 +7,8 @@ import { buscaId, deleteId } from '../../../services/Services';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
-import './DeletarProduto.css';
+
+import styles from './DeletarProduto.module.css';
 
 function DeletarProduto() {
   let navigate = useNavigate();
@@ -71,37 +72,15 @@ function DeletarProduto() {
     navigate('/produtos');
   }
   return (
-    <>
-      <Box m={2}>
-        <Card variant="outlined" >
-          <CardContent>
-            <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o produto:
-              </Typography>
-              <Typography color="textSecondary" >
-              {produto?.nome}
-              </Typography>
-            </Box>
-
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-              <Box mx={2}>
-              <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
-                Sim
-              </Button>
-              </Box>
-              <Box>
-              <Button  onClick={nao} variant="contained" size='large' color="secondary">
-                Não
-              </Button>
-              </Box>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
-    </>
+    <main className={styles.content}>
+      <div className={styles.info}>
+        <p><span>Deseja apagar o produto: </span>{produto?.nome}</p>
+      </div>
+      <footer className={styles.deletaFooter}>
+        <button className={styles.btn_nao} onClick={nao}>NÃO</button>
+        <button className={styles.btn_sim} onClick={sim}>SIM</button>
+      </footer>
+    </main>
   );
 }
 export default DeletarProduto;

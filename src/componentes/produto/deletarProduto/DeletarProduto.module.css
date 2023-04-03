@@ -1,0 +1,51 @@
+.content {
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 0 0 5px 5px;
+  background: var(--white);
+  padding: 1rem;
+
+  box-shadow: 0 1px 10px 2px var(--gray-300);
+}
+ span {
+  font-weight: bold; 
+ }
+
+.info {
+  margin-bottom: 1rem;
+  color: var(--gray-500);
+}
+
+.deletaFooter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.deletaFooter button{
+  width: 8rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  margin: .5rem 0;
+  border-radius: 8px;
+  border: 0;
+  color: var(--white);
+  font-weight: bold;
+  transition: 200ms;
+}
+
+.btn_nao {
+  background: var(--red-500);
+}
+
+.btn_sim {
+  background: var(--green-500);
+}
+
+.btn_nao:hover {
+  background: var(--red-300);
+}
+
+  .btn_sim:hover {
+  background: var(--green-300);
+}
