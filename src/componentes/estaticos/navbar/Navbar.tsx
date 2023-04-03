@@ -40,7 +40,6 @@ function Navbar() {
 					<div className={styles.logo}>
 						<div className={styles.logoIcon}>
 							<img src={icon} alt="" />
-							{/* <p style={{color:'black'}}>P</p> */}
 						</div>
 						<div>
 							<p>PowerGreen</p>
@@ -81,7 +80,7 @@ function Navbar() {
 								{/* <Link to='/cadastrar-planos'>
 								<Link to='/cadastrar-produto'> */}
               <li onClick={goLogout}>
-                <span className={styles.sair}>SAIR</span>
+                <span className={styles.sair}>{token === '' ? 'LOGIN' : 'SAIR'}</span>
               </li>
             </ul>
           </nav>

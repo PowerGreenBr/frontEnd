@@ -16,6 +16,23 @@
 	justify-content: center;
 }
 
+.content .title button {
+	padding: 1rem 1.5rem;
+	cursor: pointer;
+	margin: .5rem;
+	border-radius: 8px;
+	border: 0;
+	background: var(--green-500);
+	color: var(--white);
+	font-weight: bold;
+	transition: 100ms;
+}
+
+.content .title button:hover {
+	background: var(--green-300);
+	scale: 1;
+}
+
 .lista {
 	width: 70vw;
 	margin: 0 auto;

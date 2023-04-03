@@ -168,7 +168,7 @@ useEffect(() => {
       </aside>
       <main>
         <form onSubmit={onSubmit}>
-          <h1>Cadastro de produto</h1>
+          <h1>{produto.id !== 0 ? 'Editar produto' : 'Cadastrar produto'}</h1>
           <TextField 
             value={produto.nome} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
@@ -245,7 +245,7 @@ useEffect(() => {
 							</button>
 						</Link>
             <button type="submit">
-              Cadastrar
+              {produto.id !== 0 ? 'Editar' : 'Cadastrar'}
             </button>
           </footer>
         </form>

@@ -1,3 +1,45 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  font-size: .8rem;
+}
+
+
+
+.prefooter {
+  background: var(--green-300);
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.equipe {
+  color: var(--white);
+  line-height: 1.2rem;
+}
+
+.footerFooter {
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .5rem;
+}
+
+.footerFooter a{
+  color: var(--white);
+  text-decoration: none ;
+}
+
+.equipe ul {
+  list-style: none;
+
+}
+
 .footer {
   width: 100%;
   background: var(--green-500);

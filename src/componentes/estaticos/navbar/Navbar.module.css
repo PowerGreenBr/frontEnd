@@ -6,6 +6,13 @@
   margin-bottom: 1rem;
 }
 
+.container a {
+  text-decoration: none;
+  transition: 100ms;
+}
+.container a:hover {
+  scale: 1.1;
+}
 .banner {
   width: 100%;
 }
@@ -26,8 +33,6 @@
 .logoIcon{
   border-radius: 50%;
   background: var(--white);
-  /* background-image: url('../../../assets/powergreenbr-icon.png'); */
-  /* width: 35px; */
   max-width: 37px;
   max-height: 37px;
   padding-top: 0;
@@ -38,11 +43,9 @@
 }
 
 .logoIcon img {
-  /* background: var(--white); */
   object-fit: cover;
   object-position: center;
   padding: 0;
-  /* height: 35px; */
 }
 
 .logo>div {
@@ -105,20 +108,22 @@ header nav ul li a, .sair {
   font-size: 1rem;
   padding: 1rem 2rem;
   transition: all 250ms linear 0s;
+  cursor: pointer;
+  font-weight: bold;
 }
 .sair {
-  cursor: pointer;
   font-size: 1rem;
+  transition: all 250ms linear 0s;
 }
 
 header nav ul li a:hover {
   scale: 1.1;
-  font-weight: bold;
- 
+  color: var(--green-300);
 }
+
 .sair:hover {
+  color: var(--green-300);
   scale: 1.1;
-  font-weight: bold;
  
 }
 header nav ul li a{

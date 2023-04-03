@@ -17,14 +17,17 @@ function SobreNos() {
     <main className={styles.content}>
       <div className={styles.title}>
         <h1>Colaboradores</h1>
+        <Link to='/cadastrar-planos'>
+          <button>O projeto</button>
+        </Link>
       </div>
       <div className={styles.lista}>
         <div className={styles.cardColaborador}>
           <img src="https://github.com/CarolBertulli.png" alt="Carolina Bertulli" />
           <div className={styles.infoColaborador}>
-            <p><span>Nome: </span>Carolina Bertulli</p>
+            <p><span>Nome: </span>Carol Bertulli</p>
             <p><span>Objetivo: </span>Desenvolvedora Java Full Stack</p>
-            <p><span>Funções: </span>SCRUM Master, Desenvedora, QA</p>
+            <p><span>Funções: </span>SCRUM Master, Desenvolvedora, QA</p>
             <div>
               <a href="https://github.com/CarolBertulli" target="_blank" rel="noreferrer">
                 <GitHub />
@@ -62,14 +65,14 @@ function SobreNos() {
           <div className={styles.infoColaborador}>
             <p><span>Nome: </span>Jessica</p>
             <p><span>Objetivo: </span>Desenvolvedora Java Full Stack</p>
-            <p><span>Funções: </span>Product Owner, SCRUM Master, Desenvedora, QA</p>
+            <p><span>Funções: </span>Product Owner, SCRUM Master, Desenvolvedora, QA</p>
             <div>
               <a href="https://github.com/jess59cavalcante" target="_blank" rel="noreferrer">
                 <GitHub />
               </a>
-              {/* <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/jessicavalcante88" target="_blank" rel="noreferrer">
                 <LinkedIn />
-              </a> */}
+              </a>
               {/* <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
                 <Instagram />
               </a> */}

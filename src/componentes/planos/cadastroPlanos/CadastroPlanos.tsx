@@ -137,7 +137,7 @@ function CadastroPlanos() {
       </aside>
       <main>
         <form onSubmit={onSubmit}>
-          <h1>Cadastro de plano</h1>
+          <h1>{plano.id !== 0 ? 'Editar plano' : 'Cadastrar plano'}</h1>
           <TextField 
             value={plano.nome} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} 
@@ -165,7 +165,7 @@ function CadastroPlanos() {
 							</button>
 						</Link>
             <button type="submit">
-              Cadastrar
+              {plano.id !== 0 ? 'Editar' : 'Cadastrar'}
             </button>
           </footer>
         </form>
