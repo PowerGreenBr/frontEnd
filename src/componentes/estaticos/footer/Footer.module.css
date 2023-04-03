@@ -2,23 +2,33 @@
   width: 100%;
   background: var(--green-500);
   padding: .5rem 0 ;
+  color: var(--white);
+  font-size: .8rem;
   
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: .5rem;
 }
 
-.footer, h3 a, a {
-  color: var(--white);
+.footer ul{
+  list-style: none;
 }
 
-a {
+.footer a {
+  color: var(--white);
   text-decoration: none;
   transition: 200ms;
 }
 
-a:hover {
+.footer a:hover {
   scale: 1.2;
+}
+
+.footer>div {
+  padding: 1rem;
+}
+
+.footer+div+div {
+  border-left: solid 1px var(--gray-500);
 }
