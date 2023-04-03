@@ -1,20 +1,19 @@
 import React from "react";
-import { Carousel } from '@trendyol-js/react-carousel';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import styles from './Home.module.css';
 import { Link } from "react-router-dom";
+import Carousel from './Carousel';
+
 
 export default function Home (){
-
-  
 	return(
 		<main className={styles.content}>
-      <Carousel 
+      {/* <Carousel 
         className={styles.carousel}
         show={4} 
-        slide={1} 
+        slide={1}
         rightArrow={<ChevronRightIcon fontSize="large" />} 
         leftArrow={<ChevronLeftIcon fontSize="large" />} 
       >
@@ -23,7 +22,8 @@ export default function Home (){
         <img src="https://i.imgur.com/gUXbaZZ.jpg" className={styles.img} />
         <img src="https://i.imgur.com/dcUnvaU.jpg" className={styles.img} />
         <img src="https://i.imgur.com/vpCvw2t.jpg" className={styles.img} />
-      </Carousel>
+      </Carousel> */}
+      <Carousel />
       <div className={styles.text}>
 			<h1 >Locação de baterias para veículos elétricos por assinatura </h1>
       <p>
