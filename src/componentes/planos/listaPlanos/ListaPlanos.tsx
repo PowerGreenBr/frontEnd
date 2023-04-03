@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {useNavigate, Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import {Box} from '@mui/material';
 import Planos from '../../../model/Planos';
 import { busca } from '../../../services/Services';
 import { TokenState } from '../../../store/tokens/tokensReducer';

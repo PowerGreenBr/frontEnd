@@ -6,6 +6,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
 
 import styles from './Navbar.module.css';
+import icon from '../../../assets/powergreenbr-icon.png';
 
 
 function Navbar() {
@@ -37,6 +38,10 @@ function Navbar() {
     	<div className={styles.container}>
 				<Link to="/home">
 					<div className={styles.logo}>
+						<div className={styles.logoIcon}>
+							<img src={icon} alt="" />
+							{/* <p style={{color:'black'}}>P</p> */}
+						</div>
 						<div>
 							<p>PowerGreen</p>
 							<p>Brasil</p>

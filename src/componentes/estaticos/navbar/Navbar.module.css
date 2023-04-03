@@ -17,7 +17,34 @@
 
 .logo {
   color: var(--white  );
+  
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
+
+.logoIcon{
+  border-radius: 50%;
+  background: var(--white);
+  /* background-image: url('../../../assets/powergreenbr-icon.png'); */
+  /* width: 35px; */
+  max-width: 37px;
+  max-height: 37px;
+  padding-top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoIcon img {
+  /* background: var(--white); */
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  /* height: 35px; */
+}
+
 .logo>div {
   display: flex;
   flex-direction: column;
