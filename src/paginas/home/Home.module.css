@@ -16,15 +16,13 @@
     width: 85vw;
     margin: 0 auto;
     background: var(--gray-100);
+    cursor: pointer;
 
     display: flex;
     align-items: center;
   }
   .carousel:focus {
     box-shadow: none;
-  }
-  .carousel {
-    cursor: pointer;
   }
   
   .content {
