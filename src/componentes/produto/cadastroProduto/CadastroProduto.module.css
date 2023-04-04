@@ -35,6 +35,10 @@
     height: 100%;
     justify-content: space-between;
   } */
+
+  input::placeholder {
+    color: var(--gray-300)!important;
+  }
   .foto label {
     font-size: .8rem;
   }

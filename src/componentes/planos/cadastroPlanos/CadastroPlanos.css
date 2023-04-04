@@ -28,5 +28,5 @@
 
 .inputCadastro .MuiOutlinedInput-input {
   background-color: #fff;
-  color: #e4d1d1
+  color: var(--gray-400);
 }

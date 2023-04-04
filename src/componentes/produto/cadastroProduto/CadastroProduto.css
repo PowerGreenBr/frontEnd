@@ -16,20 +16,32 @@
   color: var(--green-300);
 }
 
+.inputCadastro::placeholder {
+  color: var(--gray-300)!important;
+}
+
 .MuiOutlinedFieldset-root, .MuiOutlinedInput-root, .Mui-focused {
   border-color:  var(--green-300)!important;
   border-width: 1px;
-  outline: 1px var(--green-300)!important;
-  
+  outline: 1px var(--green-300)!important;  
+}
+
+.inputCadastro .MuiOutlinedInput-input {
+  color: var(--gray-400)!important;
 }
 
 .inputCadastro:focus {
   border-color:  var(--green-300)!important;
   border-width: 1px;
   outline: 1px var(--green-300)!important;
+  color: red;
 
 }
 
 .inputCadastro .MuiOutlinedInput-input {
   background-color: #fff;
+}
+
+.inputCadastro .MuiOutlinedInput-input::placeholder {
+  color: red;
 }
