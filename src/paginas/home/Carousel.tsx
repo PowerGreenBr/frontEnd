@@ -5,11 +5,9 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import styles from './Home.module.css';
 
 const items = [
-  <img src="https://i.imgur.com/V96FdnV.jpg" className={styles.img} />,
-  <img src="https://i.imgur.com/R4S3PGP.jpg" className={styles.img} />,
-  <img src="https://i.imgur.com/gUXbaZZ.jpg" className={styles.img} />,
-  <img src="https://i.imgur.com/dcUnvaU.jpg" className={styles.img} />,
-  <img src="https://i.imgur.com/vpCvw2t.jpg" className={styles.img} />
+  <img src="https://i.imgur.com/b1fLVJH.png" className={styles.img} />,
+  <img src="https://i.imgur.com/xPidwr1.png" className={styles.img} />,
+   
  
 ]
 export default function Carousel() {
@@ -19,10 +17,10 @@ export default function Carousel() {
       items: 1
     },
     568: {
-      items: 3
+      items: 1
     },
     1024: {
-      items: 5,
+      items: 1,
       itemsFit: 'contain'
     }
   }
@@ -32,7 +30,7 @@ export default function Carousel() {
       items = {items}
       autoPlay
       autoPlayStrategy="default"
-      autoPlayInterval={1000}
+      autoPlayInterval={2000}
       animationDuration={2000}
       animationType="fadeout"
       infinite
