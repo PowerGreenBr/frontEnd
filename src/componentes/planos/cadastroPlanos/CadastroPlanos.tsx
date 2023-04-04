@@ -8,6 +8,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { useSelector } from 'react-redux';
 
 import styles from './CadastroPlanos.module.css';
+import './CadastroPlanos.css';
 
 function CadastroPlanos() {
   let navigate = useNavigate();
@@ -139,20 +140,22 @@ function CadastroPlanos() {
         <form onSubmit={onSubmit}>
           <h1>{plano.id !== 0 ? 'Editar plano' : 'Cadastrar plano'}</h1>
           <TextField 
+            className='inputCadastro'
             value={plano.nome} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} 
             id="nome" 
-            label="nome do plano" 
+            label="Nome do plano" 
             variant="outlined" 
             name="nome" 
             margin="normal" 
             fullWidth 
           />
-          <TextField 
+          <TextField
+            className='inputCadastro' 
             value={plano.preco} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPlano(e)} 
             id="preco" 
-            label="preco" 
+            label="Preço" 
             variant="outlined" 
             name="preco" 
             margin="normal" 

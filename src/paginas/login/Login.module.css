@@ -102,6 +102,9 @@
   color: var(--green-500);
 }
 
+
+
+
 @media screen and (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;

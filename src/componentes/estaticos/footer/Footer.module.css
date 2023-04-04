@@ -8,11 +8,11 @@
 
 .prefooter {
   background: var(--green-300);
-  padding: 1rem;
+  padding: .5rem;
 
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .equipe {
@@ -20,19 +20,14 @@
   line-height: 1.2rem;
 }
 
-.footerFooter {
-  color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: .5rem;
-}
-
-.footerFooter a{
+.prefooter a{
   color: var(--white);
   text-decoration: none ;
+  transition: 100ms;
+}
+
+.prefooter a:hover {
+  scale: 1.1;
 }
 
 .equipe ul {

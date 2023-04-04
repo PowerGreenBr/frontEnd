@@ -1,0 +1,32 @@
+.inputLogin .MuiOutlinedInput-notchedOutline {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+}
+.inputLogin .MuiOutlinedInput-notchedOutline:focus {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+}
+
+.inputLogin .MuiFormLabel-root, .inputLogin .MuiFocused {/*texto label*/
+  color: var(--gray-500) !important;
+  
+}
+
+.MuiOutlinedFieldset-root, .MuiOutlinedInput-root, .Mui-focused {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+  outline: 1px var(--green-300)!important;
+  
+}
+
+.inputLogin:focus {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+  outline: 1px var(--green-300)!important;
+
+}
+
+.inputLogin .MuiOutlinedInput-input {
+  background-color: #fff;
+  color: #e4d1d1
+}

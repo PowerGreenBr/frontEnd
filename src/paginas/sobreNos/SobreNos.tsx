@@ -17,9 +17,9 @@ function SobreNos() {
     <main className={styles.content}>
       <div className={styles.title}>
         <h1>Colaboradores</h1>
-        <Link to='/cadastrar-planos'>
+        {/* <Link to='/cadastrar-planos'>
           <button>O projeto</button>
-        </Link>
+        </Link> */}
       </div>
       <div className={styles.lista}>
         <div className={styles.cardColaborador}>
@@ -51,9 +51,9 @@ function SobreNos() {
               <a href="https://github.com/HenriqueFerreirav" target="_blank" rel="noreferrer">
                 <GitHub />
               </a>
-              {/* <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/henrique-ferreira-vieira-98896723a/" target="_blank" rel="noreferrer">
                 <LinkedIn />
-              </a> */}
+              </a>
               {/* <a href="https://www.instagram.com/no_muggles_pls/" target="_blank" rel="noreferrer">
                 <Instagram />
               </a> */}
@@ -89,9 +89,9 @@ function SobreNos() {
               <a href="https://github.com/joeljrbeginner" target="_blank" rel="noreferrer">
                 <GitHub />
               </a>
-              {/* <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/joel-nunes-dos-santos-j%C3%BAnior-0883b2265/" target="_blank" rel="noreferrer">
                 <LinkedIn />
-              </a> */}
+              </a>
               {/* <a href="https://www.instagram.com/no_muggles_pls/" target="_blank" rel="noreferrer">
                 <Instagram />
               </a> */}

@@ -1,0 +1,35 @@
+.inputCadastro .MuiOutlinedInput-notchedOutline {
+  color: var(--green-300)!important;
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+}
+.inputCadastro .MuiOutlinedInput-notchedOutline:focus {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+}
+
+.inputCadastro .MuiFormLabel-root, .inputCadastro .MuiFocused {/*texto label*/
+  color: var(--gray-500) !important;
+}
+
+.inputCadastro label {
+  color: var(--green-300);
+}
+
+.MuiOutlinedFieldset-root, .MuiOutlinedInput-root, .Mui-focused {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+  outline: 1px var(--green-300)!important;
+  
+}
+
+.inputCadastro:focus {
+  border-color:  var(--green-300)!important;
+  border-width: 1px;
+  outline: 1px var(--green-300)!important;
+
+}
+
+.inputCadastro .MuiOutlinedInput-input {
+  background-color: #fff;
+}

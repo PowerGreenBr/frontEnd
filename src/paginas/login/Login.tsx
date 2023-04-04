@@ -9,6 +9,11 @@ import { login } from '../../services/Services';
 
 import styles from './Login.module.css';
 import { useDispatch } from 'react-redux';
+import './LoginInputs.css';
+
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// or
+import { OutlinedInput } from '@mui/material';
 
 function Login() {
   let navigate = useNavigate();
@@ -95,7 +100,8 @@ function Login() {
       <main>
         <form onSubmit={onSubmit}>
           <h1>Entrar</h1>
-          <TextField  
+          <TextField
+            className='inputLogin'  
             value={userLogin.usuario} 
             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
             id='usuario' 
@@ -105,7 +111,8 @@ function Login() {
             margin="normal" 
             fullWidth 
           />
-          <TextField 
+          <TextField
+            className='inputLogin' 
             value={userLogin.senha} 
             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
             id='senha' 

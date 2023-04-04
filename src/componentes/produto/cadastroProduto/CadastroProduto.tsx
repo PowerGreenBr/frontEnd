@@ -10,6 +10,7 @@ import Produto from '../../../model/Produto';
 import Planos from '../../../model/Planos';
 
 import styles from './CadastroProduto.module.css';
+import './CadastroProduto.css';
 
 function CadastroProduto() {
 	let navigate = useNavigate();
@@ -169,7 +170,8 @@ useEffect(() => {
       <main>
         <form onSubmit={onSubmit}>
           <h1>{produto.id !== 0 ? 'Editar produto' : 'Cadastrar produto'}</h1>
-          <TextField 
+          <TextField
+            className='inputCadastro' 
             value={produto.nome} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
             id="descricao" 
@@ -179,7 +181,8 @@ useEffect(() => {
             margin="normal" 
             fullWidth 
           />
-          <TextField 
+          <TextField
+            className='inputCadastro' 
             value={produto.capacidade} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
             id="capacidade" 
@@ -189,27 +192,30 @@ useEffect(() => {
             margin="normal" 
             fullWidth 
           />
-          <TextField 
-          value={produto.numero_saidas} 
-          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
-          id="numero_saidas" 
-          label="Número de saidas" 
-          variant="outlined" 
-          name="numero_saidas" 
-          margin="normal" 
-          fullWidth 
+          <TextField
+            className='inputCadastro' 
+            value={produto.numero_saidas} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+            id="numero_saidas" 
+            label="Número de saidas" 
+            variant="outlined" 
+            name="numero_saidas" 
+            margin="normal" 
+            fullWidth 
           />
           <TextField 
-          id="foto"
-          className={styles.foto}
-          value={produto.foto} 
-          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
-          label="Foto do produto (https://...)" 
-          variant="outlined" name="foto" 
-          margin="normal" 
-          fullWidth 
+            // className='inputCadastro'
+            id="foto"
+            className={`${styles.foto} inputCadastro`}
+            value={produto.foto} 
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
+            label="Foto do produto (https://...)" 
+            variant="outlined" name="foto" 
+            margin="normal" 
+            fullWidth 
           />
           <TextField 
+          className='inputCadastro'
           value={produto.descricao} 
           onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} 
           id="descricao" 
@@ -220,7 +226,7 @@ useEffect(() => {
           fullWidth 
           />
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-helper-label">Planos</InputLabel>
+            <InputLabel className='inputCadastro' id="demo-simple-select-helper-label">Planos</InputLabel>
             <Select
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
